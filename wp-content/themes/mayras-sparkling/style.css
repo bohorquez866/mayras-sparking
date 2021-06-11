@@ -1,0 +1,29 @@
+/*!
+Theme Name: Mayras Sparkling
+Theme URI: AMG-T&I
+Author: AMG-T&I
+Author URI: AMG-T&I
+Description: Template desarrollado a medida para el cliente "Mayras Sparkling".
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: mayras
+*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body.logged-in {
+    padding-top: 32px;
+}
+@font-face {
+    font-family: 'icomoon';
+    src: url('fonts/icomoon.eot?lbeasr');
+    src: url('fonts/icomoon.eot?lbeasr#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?lbeasr') format('truetype'), url('fonts/icomoon.woff?lbeasr') format('woff'), url('fonts/icomoon.svg?lbeasr#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
