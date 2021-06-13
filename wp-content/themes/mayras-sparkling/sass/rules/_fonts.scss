@@ -54,7 +54,7 @@
     color: $black;
     font-weight: 300;
     @include mq-min($bpMedium) {
-        font-size: 15px;
+        font-size: 14px;
     }
     @include mq-min($bpLarge) {
         font-size: 16px;

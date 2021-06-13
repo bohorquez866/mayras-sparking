@@ -6,8 +6,8 @@ get_header(); ?>
 <!-- Banner -->
 <section class="home-swiper home-swiper1">
 
-    <div class="arrow prev prev1"> <i class="icon-arrow-black"></i> </div>
-    <div class="arrow next next1"><i class="icon-arrow-black"></i> </div>
+    <div class="arrow prev prev1"> <i class="icon-arrow2"></i> </div>
+    <div class="arrow next next1"><i class="icon-arrow2"></i> </div>
     <div class="swiper-pagination swiper-pagination-swiper"></div>
     <ul class="swiper-wrapper">
         <?php if( have_rows('slider_banner_inicio') ): $a = 0  ?>
@@ -71,8 +71,8 @@ get_header(); ?>
     </h3>
     <p><?php the_field( 'texto_services_inicio'); ?></p>
     <div class="swiper-pagination swiper-pagination-service"></div>
-    <div class="arrow prev prev2"> <i class="icon-arrow-black"></i> </div>
-    <div class="arrow next next2"><i class="icon-arrow-black"></i> </div>
+    <div class="arrow prev prev2"> <i class="icon-arrow2"></i> </div>
+    <div class="arrow next next2"><i class="icon-arrow2"></i> </div>
     <div class="home-service-swiper">
         <ul class="home-services__list swiper-wrapper">
             <?php

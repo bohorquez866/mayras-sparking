@@ -1,15 +1,18 @@
 .home-about {
     max-width: 75%;
     @include margin-x;
+    margin-bottom: 17rem;
     &-content {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: min-content;
-        column-gap: 7rem;
+        column-gap: 0;
+        justify-items: center;
         & .home-about-info {
             display: flex;
             justify-content: flex-start;
             flex-direction: column;
+            justify-self: start;
             max-width: 45rem;
             height: calc(100% + 20px);
             & h1 {
@@ -22,6 +25,12 @@
             & a {
                 @include btn-creator(0, $green, 17rem, 47px);
                 @include transition;
+                font-family: $font_01;
+                font-size: 14px;
+                line-height: 11px;
+                /* identical to box height, or 82% */
+                text-align: center;
+                letter-spacing: 0.15em;
                 &:hover {
                     background-color: transparent;
                     border: 1px solid black;
@@ -41,7 +50,7 @@
                 &:nth-of-type(2) {
                     position: absolute;
                     top: -9%;
-                    right: 0;
+                    right: -8%;
                     width: 31.7rem;
                     height: 43.4rem;
                 }
@@ -68,6 +77,24 @@
         & span {
             text-align: center;
             display: block;
+        }
+    }
+    & .arrow {
+        background-color: transparent;
+        & i {
+            font-size: 3rem;
+        }
+        & i::before {
+            color: #787878!important;
+        }
+        &:hover {
+            border: none;
+        }
+        &.prev {
+            left: 12%;
+        }
+        &.next {
+            right: 12%;
         }
     }
     &>p {
@@ -109,6 +136,18 @@
                 @include btn-creator(0, $black, 19.2rem, 32px);
                 @include margin-x;
                 margin-top: 3rem;
+                color: $black;
+                font-weight: 500;
+                font-size: 15px;
+                line-height: 71.7%;
+                /* or 11px */
+                text-align: center;
+                letter-spacing: 0.2em;
+                @include transition;
+                &:hover {
+                    background-color: $green;
+                    border-color: $green;
+                }
             }
         }
     }
@@ -124,9 +163,9 @@
     padding: 11.3rem 0;
     & h3 {
         @include title(3.5rem, 1.6rem, $font_01, uppercase);
-        margin-bottom: 38px;
         width: fit-content;
         @include margin-x;
+        margin-bottom: 7rem;
         &,
         & *:not(strong) {
             text-align: center;
@@ -140,6 +179,132 @@
         max-width: 50rem;
         display: block;
         @include margin-x;
+        position: relative;
+        @include mq($bpLarge) {
+            max-width: 45rem;
+        }
+        & .swiper-pagination {
+            bottom: -4rem;
+            left: 0;
+            right: 0;
+            & .swiper-pagination-bullet {
+                margin-right: 1rem;
+            }
+        }
     }
-    & .swiper-slide {}
+    & .swiper-slide {
+        & figure {
+            width: 62px;
+            height: 62px;
+            margin-bottom: 23px;
+            @include margin-x;
+            & img {
+                width: 100%;
+                height: 100%;
+                @include mq($bpLarge) {
+                    object-fit: contain;
+                }
+            }
+        }
+        & p {
+            @extend .text;
+            color: $white;
+            letter-spacing: 0.05em;
+            text-align: center;
+        }
+    }
+}
+
+//contact
+.contact-us-home {
+    max-width: 75%;
+    @include margin-x;
+    padding: 12.4rem 0;
+    & .contact-us-form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        & h1 {
+            @include title(35px, 16px, $font_02, uppercase);
+            height: fit-content;
+            margin-top: 8rem;
+            & span {
+                display: block;
+            }
+        }
+        & h1,
+        &>p {
+            max-width: 45rem;
+            grid-column: 1/2;
+            grid-row: 1/2;
+            align-self: flex-start;
+            justify-self: center;
+            margin-left: 25px;
+        }
+        &>p {
+            @extend .text;
+            letter-spacing: 0.05em;
+            margin-top: 21.5rem;
+        }
+        //form
+        & .wpcf7 {
+            max-width: 450px;
+            & * {
+                width: 100%;
+            }
+            & label {
+                font-family: $font_01;
+                letter-spacing: 0.1em;
+                font-size: 16px;
+                display: block;
+                margin-bottom: 1rem;
+            }
+            & input,
+            & select {
+                height: 37px;
+                font-family: $font_02;
+                padding-left: 1.5rem;
+                color: #696969;
+            }
+            & select {
+                appearance: none;
+            }
+            & textarea {
+                font-family: $font_02;
+                padding: 1.5rem;
+                height: 85px;
+                color: #696969;
+            }
+            & .input_item {
+                margin-bottom: 15px;
+            }
+            & .button_g_green {
+                @include btn-creator(0, $black, 100%, 37px);
+                background-color: transparent;
+                @include transition;
+                color: $black;
+                margin-top: 2rem;
+                display: block;
+                &:hover {
+                    background-color: $green;
+                    border-color: $green;
+                }
+            }
+            & .wpcf7-form-control-wrap.list_services {
+                position: relative;
+                &::before {
+                    content: '';
+                    height: 13px;
+                    width: 13px;
+                    position: absolute;
+                    right: 1.5rem;
+                    top: 9px;
+                    background-image: url(./../templates/src/assets/img/cross.svg);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    pointer-events: none;
+                }
+            }
+        }
+    }
 }

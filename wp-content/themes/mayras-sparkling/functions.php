@@ -100,6 +100,7 @@ function wp_benefits_how_we_work($content = null) {
             <?php echo $first_word; ?> <strong><?php echo $second_word; ?></strong>
         </h3>
         <div class="banner_slider_prin">
+            <div class="swiper-pagination swiper-pagination-benefits"></div>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <?php if( have_rows('lista_benefits_how_we_work') ): $a = 0  ?>

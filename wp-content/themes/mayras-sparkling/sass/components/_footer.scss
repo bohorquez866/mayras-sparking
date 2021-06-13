@@ -1,0 +1,25 @@
+.footer {
+    @include footer(black, 7.8rem, 9rem, 3.5rem, 3rem, $white);
+    & .sub-menu {
+        display: none;
+    }
+    & * {
+        font-family: $font_01;
+        font-weight: 600;
+        font-size: 16px;
+        /* or 11px */
+        letter-spacing: 0.05em;
+    }
+    & .footer__contact {
+        align-items: center;
+        & span {
+            color: $white;
+            margin-right: 1rem;
+        }
+        & .social-footer {
+            & a::before {
+                color: $white;
+            }
+        }
+    }
+}

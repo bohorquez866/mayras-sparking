@@ -13,6 +13,11 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-arrow2:before {
+    content: "\e907";
+    color: #787878;
+}
+
 .icon-eye:before {
     content: "\e906";
 }

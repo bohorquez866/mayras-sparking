@@ -1,0 +1,136 @@
+.contact-banner {
+    margin-top: 25px;
+    max-width: 75%;
+    @include margin-x;
+    & .banner_general {
+        background: rgba(0, 0, 0, 0.5);
+        background-blend-mode: multiply;
+        background-size: cover;
+        background-position: center center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 26rem;
+        & h1,
+        & h3 {
+            text-align: left;
+            @include title(35px, 16px, $font_02, uppercase);
+        }
+        h1 {
+            font-size: 16px;
+            line-height: 18px;
+            /* or 112% */
+            text-align: left;
+            letter-spacing: 0.23em;
+            color: #00FFD1;
+            text-align: center;
+        }
+        h3 {
+            font-family: $font_01;
+            font-weight: normal;
+            font-size: 35px;
+            line-height: 45px;
+            /* or 129% */
+            text-align: center;
+            letter-spacing: 0.03em;
+            color: $white;
+            margin-top: 2rem;
+        }
+    }
+}
+
+.contact-us {
+    max-width: 75%;
+    @include margin-x;
+    padding: 12.4rem 0;
+    & .contact-us-form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        @include mq($bpLarge) {
+            column-gap: 7rem
+        }
+        & h1 {
+            @include title(35px, 16px, $font_02, uppercase);
+            height: fit-content;
+            margin-top: 8rem;
+            & span {
+                display: block;
+            }
+        }
+        & h1,
+        &>p {
+            max-width: 45rem;
+            grid-column: 1/2;
+            grid-row: 1/2;
+            align-self: flex-start;
+            justify-self: center;
+            margin-left: 25px;
+        }
+        &>p {
+            @extend .text;
+            letter-spacing: 0.05em;
+            margin-top: 21.5rem;
+        }
+        //form
+        & .wpcf7 {
+            max-width: 450px;
+            & * {
+                width: 100%;
+            }
+            & label {
+                font-family: $font_01;
+                letter-spacing: 0.1em;
+                font-size: 16px;
+                display: block;
+                margin-bottom: 1rem;
+            }
+            & input,
+            & select {
+                height: 37px;
+                font-family: $font_02;
+                padding-left: 1.5rem;
+                color: #696969;
+            }
+            & select {
+                appearance: none;
+            }
+            & textarea {
+                font-family: $font_02;
+                padding: 1.5rem;
+                height: 85px;
+                color: #696969;
+            }
+            & .input_item {
+                margin-bottom: 15px;
+            }
+            & .button_g_green {
+                @include btn-creator(0, $black, 100%, 37px);
+                background-color: transparent;
+                @include transition;
+                color: $black;
+                margin-top: 2rem;
+                display: block;
+                &:hover {
+                    background-color: $green;
+                    border-color: $green;
+                }
+            }
+            & .wpcf7-form-control-wrap.list_services {
+                position: relative;
+                &::before {
+                    content: '';
+                    height: 13px;
+                    width: 13px;
+                    position: absolute;
+                    right: 1.5rem;
+                    top: 9px;
+                    background-image: url(./../templates/src/assets/img/cross.svg);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+}

@@ -35,3 +35,15 @@ var swiper = new Swiper(".home-service-swiper", {
 
     // }
 });
+
+var swiper = new Swiper(".banner_slider_prin .swiper-container  ", {
+    slidesPerView: 1,
+    spaceBetween: 45,
+    speed: 1700,
+    effect: "fade",
+    fadeEffect: { crossFade: true },
+    pagination: {
+        el: ` .swiper-pagination-benefits`,
+
+    }
+});

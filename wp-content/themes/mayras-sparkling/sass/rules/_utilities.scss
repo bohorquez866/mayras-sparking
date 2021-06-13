@@ -50,7 +50,6 @@
     font-weight: 600;
     font-size: 3rem;
     cursor: pointer;
-    @include transition;
     & i {
         font-size: 1.6rem;
         &::before {

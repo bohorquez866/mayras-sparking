@@ -40,6 +40,12 @@ serif;
     @include margin-x;
 }
 
+@mixin container-110 {
+    max-width: 110rem;
+    width: 100%;
+    @include margin-x;
+}
+
 @mixin container-120 {
     max-width: 120rem;
     width: 100%;

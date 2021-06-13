@@ -58,11 +58,12 @@
     padding-bottom: $padding-bottom;
     .#{$container-name} {
         @include container-140;
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         justify-content: flex-end;
         & .#{$form-wrapper} {
             & #{$heading} {
-                @include title($first-title-size, $second-title-size, null, uppercase);
+                @include title($first-title-size, $second-title-size, $font_01, uppercase);
                 text-align: center;
                 margin-bottom: 5rem;
             }
@@ -165,7 +166,7 @@
                 & a {
                     color: $color-link;
                     &:hover {
-                        color: $yellow;
+                        color: $green;
                     }
                     @include mq($bpMedium) {
                         font-size: 12px;
@@ -259,6 +260,7 @@
                 //social footer
                 & div.social-footer {
                     display: flex;
+                    align-items: center;
                     & p {
                         color: $white;
                         margin-right: 21px;

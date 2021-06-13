@@ -2,7 +2,9 @@
 /* Template Name: Template - About*/
 get_header(); ?>
 <!-- Banner -->
-<?php echo do_shortcode('[banner_general]'); ?>
+<section class="about-banner">
+    <?php echo do_shortcode('[banner_general]'); ?>
+</section>
 <!-- About -->
 <section class="section_about_contact">
     <div class="section_about_contact_image">
@@ -14,7 +16,10 @@ get_header(); ?>
     </div>
 </section>
 <!-- How we work -->
-<?php echo do_shortcode('[benefits_how_we_work]'); ?>
+<section class="about-services">
+    <?php echo do_shortcode('[benefits_how_we_work]'); ?>
+</section>
+
 <!-- Questions -->
 <section class="section_about_questions">
     <h3>
@@ -30,10 +35,10 @@ get_header(); ?>
         <ul>
             <?php if( have_rows('lista_questions_about') ): $a = 0  ?>
             <?php while( have_rows('lista_questions_about') ): the_row(); $a++ ?>
-                <li>
-                    <h4><?php the_sub_field('titulo_lista_questions_about'); ?></h4>
-                    <p><?php the_sub_field('texto_lista_questions_about'); ?></p>
-                </li>
+            <li>
+                <h4><?php the_sub_field('titulo_lista_questions_about'); ?></h4>
+                <p><?php the_sub_field('texto_lista_questions_about'); ?></p>
+            </li>
             <?php endwhile; ?>
             <?php endif; ?>
         </ul>

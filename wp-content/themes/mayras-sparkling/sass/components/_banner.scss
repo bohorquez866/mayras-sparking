@@ -5,12 +5,18 @@
     overflow: hidden;
     position: relative;
     margin-top: 25px;
+    @include mq($bpLarge) {
+        height: 50rem;
+    }
     & .swiper-item {
         height: 66rem;
         background: rgba(0, 0, 0, 0.4);
         background-size: cover;
         background-blend-mode: multiply;
         display: flex;
+        @include mq($bpLarge) {
+            height: 50rem;
+        }
         & article {
             align-self: flex-end;
             margin: 0 0 8rem 8rem;
