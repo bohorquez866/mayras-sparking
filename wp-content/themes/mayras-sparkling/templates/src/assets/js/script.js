@@ -18,3 +18,20 @@ var swiper = new Swiper(".home-swiper.home-swiper1", {
 
     }
 });
+
+var swiper = new Swiper(".home-service-swiper", {
+    slidesPerView: 4,
+    spaceBetween: 45,
+    speed: 1700,
+
+
+    navigation: {
+        nextEl: ".next2",
+        prevEl: ".prev2",
+    },
+
+    // pagination: {
+    //     el: ` .swiper-pagination-service`,
+
+    // }
+});

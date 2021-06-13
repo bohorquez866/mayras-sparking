@@ -44,6 +44,8 @@ function add_this_script_footer(){
    //Swipper Js
    wp_register_script('swipper-js', get_stylesheet_directory_uri() . '/templates/src/assets/js/swiper.js');
    wp_enqueue_script('swipper-js');
+   wp_register_script('aos', get_stylesheet_directory_uri() . '/templates/src/assets/js/swiper.js');
+   wp_enqueue_script('aos');
    wp_register_script('app', get_stylesheet_directory_uri() . '/dist/js/app.js', 1, true);
    //uncompiled Script
   wp_register_script('script-js', get_stylesheet_directory_uri() . '/templates/src/assets/js/script.js');

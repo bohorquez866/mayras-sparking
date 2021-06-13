@@ -1,6 +1,8 @@
 <?php
 /* Template Name: Template - Home*/
 get_header(); ?>
+
+
 <!-- Banner -->
 <section class="home-swiper home-swiper1">
 
@@ -54,6 +56,7 @@ get_header(); ?>
         </div>
     </div>
 </section>
+
 <!-- Services -->
 <section class="home-services" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
     <h3>
@@ -68,6 +71,8 @@ get_header(); ?>
     </h3>
     <p><?php the_field( 'texto_services_inicio'); ?></p>
     <div class="swiper-pagination swiper-pagination-service"></div>
+    <div class="arrow prev prev2"> <i class="icon-arrow-black"></i> </div>
+    <div class="arrow next next2"><i class="icon-arrow-black"></i> </div>
     <div class="home-service-swiper">
         <ul class="home-services__list swiper-wrapper">
             <?php
@@ -96,10 +101,15 @@ get_header(); ?>
         </ul>
     </div>
 </section>
+
 <!-- Benefits -->
 <?php echo do_shortcode('[benefits_how_we_work]'); ?>
+
+
 <!-- Contact Us -->
 <section class="contact-us-home">
     <?php get_template_part( 'templates/content-form'); ?>
 </section>
+
+
 <?php get_footer(); ?>
