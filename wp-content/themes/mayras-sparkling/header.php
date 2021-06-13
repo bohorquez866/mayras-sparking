@@ -24,25 +24,27 @@
                     'menu_class' => 'navbar__list'
                 ));
             ?>
+
+            <div class="header_fixed">
+                <ul>
+                    <li>
+                        <a class="icon-mail" href="mailto:<?php the_field( 'email','options'); ?>"></a>
+                    </li>
+                    <li>
+                        <a class="icon-phone" href="tel:<?php the_field( 'telefono','options'); ?>"></a>
+                    </li>
+                    <?php echo do_shortcode('[social_media]'); ?>
+                </ul>
+            </div>
         </nav>
-        <div class="header_fixed">
-            <ul>
-                <li>
-                    <a href="mailto:<?php the_field( 'email','options'); ?>"></a>
-                </li>
-                <li>
-                    <a href="tel:<?php the_field( 'telefono','options'); ?>"></a>
-                </li>
-                <?php echo do_shortcode('[social_media]'); ?>
-            </ul>
-        </div>
+
     </header>
-    
+
     <div class="burger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
     <nav class="mobile-menu">
         <div class="burger-menu">X</div>
@@ -73,7 +75,7 @@
                 <li>
                     <p><strong> <?php the_field('titulo_telefono','options'); ?></strong>
                         <a href="tel:<?php the_field('telefono','options'); ?>">
-                          <?php the_field('telefono','options'); ?>
+                            <?php the_field('telefono','options'); ?>
                         </a>
                     </p>
                     <p> <strong><?php the_field('titulo_email','options'); ?> </strong>
@@ -88,5 +90,5 @@
             </ul>
         </div>
     </nav>
-
+    <!-- MAIN SITE -->
     <main class="main_site">

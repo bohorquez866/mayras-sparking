@@ -1,0 +1,321 @@
+@mixin mason-tiles($title-description-width, $radius-img, $img-width, $img-height, $first-title-size, $second-title-size, $third-title-size, $fourth-title-size, $padding-bottom, $padding-top, $heading1, $heading2, $font-mason) {
+    @include container-110;
+    padding-bottom: $padding-bottom;
+    padding-top: $padding-top;
+    display: grid;
+    & h3 {
+        @include title($second-title-size, $first-title-size, $font-mason, uppercase);
+        text-align: center;
+        grid-column: 1/-1;
+    }
+    &>p {
+        @extend .text;
+        text-align: center;
+        max-width: $title-description-width;
+        margin: 6rem auto;
+    }
+    & ul {
+        display: flex;
+        justify-content: space-between;
+        & li {
+            width: 34.3rem;
+            & figure {
+                @include transition;
+                margin-bottom: 3rem;
+            }
+            img {
+                width: $img-width;
+                height: $img-height;
+                border-radius: $radius-img;
+                @include margin-x;
+            }
+            & .title-wrapper {
+                text-align: center;
+                margin-bottom: 2.7rem;
+                @include title($third-title-size, $fourth-title-size, $font_01, uppercase);
+                & #{$heading1} {
+                    color: $white;
+                    font-size: $third-title-size;
+                }
+                & #{$heading2} {
+                    font-size: $fourth-title-size;
+                }
+            }
+            &>p {
+                @extend .text;
+                text-align: center;
+                width: 80%;
+                @include margin-x;
+                margin-bottom: 2.3rem;
+            }
+        }
+    }
+    @content
+}
+
+@mixin contact-home($heading, $first-title-size, $second-title-size, $container-name, $form-wrapper, $form-width, $form-color, $padding-top, $padding-bottom, $padding-form, $input-name, $input-color, $border, $input-radius, $textarea-height) {
+    padding-top: $padding-top;
+    padding-bottom: $padding-bottom;
+    .#{$container-name} {
+        @include container-140;
+        display: flex;
+        justify-content: flex-end;
+        & .#{$form-wrapper} {
+            & #{$heading} {
+                @include title($first-title-size, $second-title-size, null, uppercase);
+                text-align: center;
+                margin-bottom: 5rem;
+            }
+            padding: $padding-form;
+            width: $form-width;
+            background-color: $form-color;
+            & form>div {
+                margin-bottom: 2.5rem;
+            }
+            & .#{$input-name} {
+                background-color: $input-color;
+                border: $border;
+                padding: 1rem 2rem;
+                width: 100%;
+                border-radius: $input-radius;
+                &,
+                &::placeholder {
+                    font-size: 18px;
+                    color: #cacaca;
+                    font-family: $font_02;
+                }
+            }
+            & label {
+                @extend .text;
+                font-size: 18px;
+                margin-bottom: 1.7rem;
+                display: flex;
+            }
+            & textarea {
+                height: $textarea-height;
+            }
+            & input.btn--contact {
+                @extend .btn--yellow;
+                cursor: pointer;
+            }
+        }
+        & .title-wrapper {
+            @include title($first-title-size, $second-title-size, $font_02, uppercase);
+        }
+    }
+}
+
+@mixin footer($footer-color, $padding-top, $padding-bottom, $row-gap, $column-gap, $color-link) {
+    background-color: $footer-color;
+    padding-top: $padding-top;
+    padding-bottom: $padding-bottom;
+    & .logo {
+        width: fit-content;
+        @include margin-x;
+        grid-column: 1/-1;
+        & img {
+            @include mq($bpMedium) {
+                width: 63px;
+                height: 96px;
+            }
+        }
+    }
+    &__wrapper {
+        @include container-110;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, min-content);
+        row-gap: $row-gap;
+        column-gap: $column-gap;
+        justify-items: center;
+        & * {
+            font-family: $font_02;
+        }
+        //
+        @include mq($bpMedium) {
+            width: 100%;
+            max-width: 100%;
+        }
+        & ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            @include mq($bpMedium) {
+                grid-column: 1/-1;
+                justify-content: space-evenly;
+            }
+            //
+            & li {
+                position: relative;
+                height: fit-content;
+                &:not(:last-child) {
+                    padding-right: 3rem;
+                    @include mq($bpMedium) {
+                        padding-right: 2rem;
+                    }
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        width: 2px;
+                        height: 90%;
+                        right: 0;
+                        top: 3%;
+                    }
+                }
+                & a {
+                    color: $color-link;
+                    &:hover {
+                        color: $yellow;
+                    }
+                    @include mq($bpMedium) {
+                        font-size: 12px;
+                    }
+                }
+            }
+            //CONTACT FOOTER
+            &.footer__contact {
+                display: flex;
+                justify-content: space-between;
+                font-size: 16px;
+                grid-row: 3/4;
+                grid-column: 1/-1;
+                width: fit-content;
+                column-gap: 3rem;
+                row-gap: 2rem;
+                @include mq($bpMedium) {
+                    row-gap: 0;
+                    width: 100%;
+                    row-gap: 0;
+                    display: grid;
+                    column-gap: 0;
+                    align-items: center;
+                    grid-template-columns: repeat(2, max-content);
+                    grid-template-rows: repeat(3, min-content);
+                }
+                //GENERAL LI SELECTOR
+                & li {
+                    display: flex;
+                    align-items: flex-start;
+                    &::after {
+                        @include mq-min($bpMedium) {
+                            background-color: white;
+                        }
+                    }
+                    @include mq($bpMedium) {
+                        padding-right: 0;
+                        &::after {
+                            background-color: transparent;
+                        }
+                    }
+                    & em {
+                        @include mq($bpMedium) {
+                            display: initial;
+                            color: $white;
+                            font-size: 15px;
+                            font-weight: normal;
+                            font-family: $font_02;
+                        }
+                    }
+                    & a {
+                        @include mq($bpMedium) {
+                            font-weight: 400;
+                            letter-spacing: 0.05em;
+                            font-size: 15px;
+                        }
+                    }
+                }
+                //LIs
+                & li:nth-of-type(1) {
+                    @include mq($bpMedium) {
+                        grid-column: 1/2;
+                        grid-row: 1/2;
+                        margin-bottom: 1rem;
+                    }
+                    & p {
+                        font-size: 20px;
+                        font-family: $font_01;
+                        color: $white;
+                    }
+                    &::after {
+                        background-color: transparent;
+                    }
+                }
+                & li:nth-of-type(2) {
+                    grid-column: 1/2;
+                    grid-row: 1/2;
+                    @include mq($bpMedium) {
+                        grid-column: 1/2;
+                        grid-row: 2/3;
+                    }
+                }
+                & li:nth-of-type(3) {
+                    grid-column: 2/3;
+                    grid-row: 1/2;
+                    @include mq($bpMedium) {
+                        grid-column: 1/2;
+                        grid-row: 3/4;
+                    }
+                }
+                //social footer
+                & div.social-footer {
+                    display: flex;
+                    & p {
+                        color: $white;
+                        margin-right: 21px;
+                        display: flex;
+                        align-items: flex-end;
+                        @include mq($bpMedium) {
+                            margin-right: 0;
+                            display: none;
+                        }
+                    }
+                    & a {
+                        display: block;
+                        font-size: 2rem;
+                        @include mq-min($bpMedium) {
+                            margin-right: 2rem;
+                        }
+                    }
+                    @include mq($bpMedium) {
+                        justify-self: end;
+                        display: block;
+                        grid-column: 2/3;
+                        grid-row: 1/span 3;
+                        & a {
+                            display: block;
+                            position: relative;
+                            font-size: 35px;
+                            height: fit-content;
+                            height: 35px;
+                            &:first-of-type {
+                                margin-bottom: 2rem;
+                            }
+                        }
+                    }
+                    & li {
+                        &:not(:nth-of-type(2)) {
+                            display: block!important;
+                            padding-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .footer__links {
+            grid-row: 2/3;
+            grid-column: 1/-1;
+            width: fit-content;
+            & ul {
+                column-gap: 0;
+                @include mq($bpMedium) {
+                    column-gap: 2rem;
+                    row-gap: 1.5rem;
+                    padding-bottom: 4rem;
+                    border-bottom: 1px solid #fff;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

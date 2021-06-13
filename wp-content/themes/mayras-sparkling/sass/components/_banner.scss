@@ -1,0 +1,43 @@
+.home-swiper {
+    max-width: 75%;
+    @include margin-x;
+    margin-bottom: 17rem;
+    overflow: hidden;
+    position: relative;
+    margin-top: 25px;
+    & .swiper-item {
+        height: 66rem;
+        background: rgba(0, 0, 0, 0.4);
+        background-size: cover;
+        background-blend-mode: multiply;
+        display: flex;
+        & article {
+            align-self: flex-end;
+            margin: 0 0 8rem 8rem;
+            & * {
+                color: $white;
+                font-weight: 500;
+                letter-spacing: 0.05em;
+            }
+            & h2 {
+                font-size: 6rem;
+                line-height: 43px;
+                /* or 72% */
+                margin-bottom: 1.5rem;
+                text-transform: uppercase;
+            }
+            & span {
+                font-weight: 500;
+                font-size: 30px;
+                line-height: 26px;
+            }
+            & a {
+                display: block;
+                font-weight: 600;
+                font-size: 18px;
+                margin-top: 3rem;
+                @include btn-creator(0, $white, 22rem, 37px);
+            }
+        }
+    }
+}

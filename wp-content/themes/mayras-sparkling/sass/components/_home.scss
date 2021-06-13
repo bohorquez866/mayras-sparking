@@ -1,0 +1,71 @@
+.home-about {
+    max-width: 75%;
+    @include margin-x;
+    &-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 7rem;
+        & .home-about-info {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            max-width: 45rem;
+            padding-bottom: 17rem;
+            height: calc(100% + 20px);
+            & h1 {
+                @include title(3.5rem, 1.6rem, $font_01, uppercase);
+                margin-bottom: 38px;
+            }
+            & p {
+                @extend .text;
+            }
+            & a {
+                @include btn-creator(0, $green, 17rem, 47px);
+                @include transition;
+                &:hover {
+                    background-color: transparent;
+                    border: 1px solid black;
+                    color: $black;
+                }
+                background-color: $green;
+                justify-self: flex-end;
+                margin-top: 4rem;
+            }
+        }
+        //imgs
+        & .home-about-imgs {
+            position: relative;
+            & figure {
+                width: 52.3rem;
+                height: 100%;
+                &:nth-of-type(2) {
+                    position: absolute;
+                    top: -9%;
+                    right: 0;
+                    width: 31.7rem;
+                    height: 46.4rem;
+                }
+                & img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+.home-services {
+    background-color: #F7FAFD;
+    padding: 15.8rem 0;
+    opacity: 1!important; //remove this Important later
+    & h3 {
+        @include title(3.5rem, 1.6rem, $font_01, uppercase);
+        margin-bottom: 38px;
+        width: fit-content;
+        @include margin-x;
+        & span {
+            text-align: center;
+            display: block;
+        }
+    }
+}

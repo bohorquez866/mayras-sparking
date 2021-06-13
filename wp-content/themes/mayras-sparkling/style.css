@@ -16,9 +16,11 @@ Text Domain: mayras
     margin: 0px;
     padding: 0px;
 }
+
 body.logged-in {
     padding-top: 32px;
 }
+
 @font-face {
     font-family: 'icomoon';
     src: url('fonts/icomoon.eot?lbeasr');

@@ -33,7 +33,7 @@ function remove_editor() {
 add_action('admin_init', 'remove_editor');
 
 function scripts(){
-  wp_register_style('style', get_stylesheet_directory_uri() . '/dist/scss/styles.css', [], 1, 'all'); 
+  wp_register_style('style', get_stylesheet_directory_uri() . '/sass/styles.css', [], 1, 'all'); 
   wp_enqueue_style('style');
   
 }
@@ -85,7 +85,8 @@ add_shortcode('social_media', 'wp_custom_social_media');
 // Shortcode Slider
 function wp_benefits_how_we_work($content = null) {
 	ob_start(); ?>
-<div class="banner_slider_section" style="background-image: url('<?php the_field( 'imagen_benefits_how_we_work'); ?>');">
+<div class="banner_slider_section"
+    style="background-image: url('<?php the_field( 'imagen_benefits_how_we_work'); ?>');">
     <div class="banner_slider_section_general">
         <h3>
             <?php
@@ -101,12 +102,13 @@ function wp_benefits_how_we_work($content = null) {
                 <div class="swiper-wrapper">
                     <?php if( have_rows('lista_benefits_how_we_work') ): $a = 0  ?>
                     <?php while( have_rows('lista_benefits_how_we_work') ): the_row(); $a++ ?>
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="<?php the_sub_field( 'imagen_benefits_how_we_work'); ?>" alt="Benefits-How we Work">
-                            </figure>
-                            <p><?php the_sub_field( 'texto_benefits_how_we_work'); ?></p>
-                        </div>
+                    <div class="swiper-slide">
+                        <figure>
+                            <img src="<?php the_sub_field( 'imagen_benefits_how_we_work'); ?>"
+                                alt="Benefits-How we Work">
+                        </figure>
+                        <p><?php the_sub_field( 'texto_benefits_how_we_work'); ?></p>
+                    </div>
                     <?php endwhile; ?>
                     <?php endif; ?>
                 </div>
@@ -124,10 +126,10 @@ add_shortcode('benefits_how_we_work', 'wp_benefits_how_we_work');
 // Shortcode Slider
 function wp_banner_general($content = null) {
 	ob_start(); ?>
-    <div class="banner_general" style="background-image: url('<?php the_field( 'banner_general'); ?>');">
-        <h1><?php the_title(); ?></h1>
-        <h3><?php the_field('titulo_banner_general'); ?></h3>
-    </div>
+<div class="banner_general" style="background-image: url('<?php the_field( 'banner_general'); ?>');">
+    <h1><?php the_title(); ?></h1>
+    <h3><?php the_field('titulo_banner_general'); ?></h3>
+</div>
 <?php
 	$content = ob_get_contents();
 	ob_end_clean();

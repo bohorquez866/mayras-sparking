@@ -1,0 +1,109 @@
+$white: #fff;
+$black: #000;
+$darkBlue: #121B22;
+$yellow: #D09F0A;
+$green: #00FFD1;
+$blue: #005E8F;
+$blue-2: #002D45;
+$blue-3: #007EC1;
+$grey: #6B6B6B;
+$cream: rgba(208, 159, 10, 0.1);
+//
+$primary-font: 'Open Sans',
+sans-serif;
+//
+$font_02:'Roboto',
+sans-serif;
+$font_01: 'Oswald',
+sans-serif;
+$font_03: 'Source Serif Pro',
+serif;
+//breakpoint
+@mixin mq($breakpoint) {
+    @media only screen and (max-width: $breakpoint) {
+        @content
+    }
+}
+
+@mixin mq-min($breakpoint) {
+    @media only screen and (min-width: $breakpoint) {
+        @content
+    }
+}
+
+@mixin transition {
+    transition: all .5s ease-in-out;
+}
+
+@mixin container-100 {
+    width: 89rem;
+    @include margin-x;
+}
+
+@mixin container-120 {
+    max-width: 120rem;
+    width: 100%;
+    @include margin-x;
+}
+
+@mixin container-130 {
+    max-width: 130rem;
+    width: 100%;
+    @include margin-x;
+}
+
+@mixin container-140 {
+    max-width: 140rem;
+    width: 100%;
+    @include margin-x;
+}
+
+@mixin container-110 {
+    width: 110rem;
+    @include margin-x;
+}
+
+@mixin bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@mixin margin-x {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin center-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+@mixin btn-creator($bRadius, $colorBorder, $width, $height) {
+    appearance: none;
+    outline: none;
+    border-radius: $bRadius;
+    border: 1px solid $colorBorder;
+    text-transform: uppercase;
+    font-weight: 600;
+    width: $width;
+    height: $height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+$bpXLarge: 118.75em; //1900px
+$bpLarge: 106em; //1700px
+$bpLaptop: 94em; //1504px
+$bpBig: 84.37em; //1400
+$bpXMedium: 68.75em; //960px
+$bpMedium: 60em; //960px
+$bpSmall: 30em; //480px
+$bpXSmall: 20em; //320px

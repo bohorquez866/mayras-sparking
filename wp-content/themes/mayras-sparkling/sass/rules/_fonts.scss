@@ -1,0 +1,70 @@
+@mixin two-color-title($fsize1, $fsize2, $color, $fweight) {
+    font-family: $primary-font;
+    width: fit-content;
+    text-transform: uppercase;
+    & p {
+        font-size: $fsize1;
+    }
+    & strong {
+        color: $color;
+        font-weight: $fweight;
+        font-size: $fsize2;
+        display: block;
+        letter-spacing: 0.025em;
+    }
+}
+
+@mixin title($fontBig, $fontSmall, $font-2, $textTransform) {
+    & h1,
+    & h2,
+    & h3,
+    & h4,
+    strong {
+        font-size: $fontBig;
+        font-family: $font_01;
+        color: $black;
+        font-weight: 400;
+        letter-spacing: 0.025em;
+        display: block;
+        line-height: 35px;
+        letter-spacing: 0.03em;
+        text-transform: initial;
+        @include mq-min($bpMedium) {
+            line-height: 45px;
+        }
+    }
+    &,
+    & span,
+    &>p {
+        text-transform: $textTransform;
+        font-weight: 400;
+        font-size: $fontSmall;
+        font-family: $font-2;
+        color: $black;
+        letter-spacing: 0.23em;
+    }
+}
+
+.text {
+    font-size: 16px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    /* or 169% */
+    color: $black;
+    font-weight: 300;
+    @include mq-min($bpMedium) {
+        font-size: 15px;
+    }
+    @include mq-min($bpLarge) {
+        font-size: 16px;
+    }
+}
+
+.read-more {
+    color: $yellow;
+    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    display: block;
+}

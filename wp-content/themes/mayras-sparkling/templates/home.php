@@ -3,26 +3,29 @@
 get_header(); ?>
 <!-- Banner -->
 <section class="home-swiper home-swiper1">
-    <div class="container">
-        <div class="arrow prev prev1"> <i class="icon-arrow-black"></i> </div>
-        <div class="arrow next next1"><i class="icon-arrow-black"></i> </div>
-        <div class="swiper-pagination swiper-pagination-swiper"></div>
-        <ul class="swiper-wrapper">
-            <?php if( have_rows('slider_banner_inicio') ): $a = 0  ?>
-            <?php while( have_rows('slider_banner_inicio') ): the_row(); $a++ ?>
-                <li class="swiper-slide">
-                    <div class="swiper-item" style="background-image: url('<?php the_sub_field( 'imagen_fondo_inicio'); ?>');">
-                        <article>
-                            <h2><?php the_sub_field( 'titulo_banner_inicio'); ?></h2>
-                            <span><?php the_sub_field( 'texto_banner_inicio'); ?></span>
-                        </article>
-                        <a href="<?php echo esc_url( home_url( '/services' ) ); ?>"><?php the_field( 'label_banner_inicio'); ?></a>
-                    </div>
-                </li>
-            <?php endwhile; ?>
-            <?php endif; ?>
-        </ul>
-    </div>
+
+    <div class="arrow prev prev1"> <i class="icon-arrow-black"></i> </div>
+    <div class="arrow next next1"><i class="icon-arrow-black"></i> </div>
+    <div class="swiper-pagination swiper-pagination-swiper"></div>
+    <ul class="swiper-wrapper">
+        <?php if( have_rows('slider_banner_inicio') ): $a = 0  ?>
+        <?php while( have_rows('slider_banner_inicio') ): the_row(); $a++ ?>
+        <li class="swiper-slide">
+            <div class="swiper-item" style="background-image: url('<?php the_sub_field( 'imagen_fondo_inicio'); ?>');">
+                <article>
+                    <h2><?php the_sub_field( 'titulo_banner_inicio'); ?></h2>
+                    <span><?php the_sub_field( 'texto_banner_inicio'); ?></span>
+                    <a href="<?php echo esc_url( home_url( '/services' ) ); ?>">
+                        <?php the_field( 'label_banner_inicio'); ?>
+                    </a>
+
+                </article>
+            </div>
+        </li>
+        <?php endwhile; ?>
+        <?php endif; ?>
+    </ul>
+
 </section>
 <!-- About -->
 <section class="home-about">
@@ -37,7 +40,7 @@ get_header(); ?>
             <?php if( have_rows('lista_about_inicio') ): $b = 0  ?>
             <?php while( have_rows('lista_about_inicio') ): the_row(); $b++ ?>
             <figure>
-                <img src="<?php the_sub_field( 'imagen_about_inicio'); ?>" alt="<?php echo $second_word; ?>" >
+                <img src="<?php the_sub_field( 'imagen_about_inicio'); ?>" alt="<?php echo $second_word; ?>">
             </figure>
             <?php endwhile; ?>
             <?php endif; ?>
@@ -76,16 +79,17 @@ get_header(); ?>
             $wp_query = new WP_Query($args); ?>
             <?php if($wp_query->have_posts()) : $c = 0 ?>
             <?php while ($wp_query->have_posts()) : $wp_query->the_post(); $c++ ?>
-                <li class="swiper-slide">
-                    <figure>
-                        <img src="<?php the_field('imagen_servicio_home'); ?>" alt="<?php the_title(); ?>">
-                    </figure>
-                    <div class="title-wrapper">
-                        <h3><?php the_title(); ?></h3>
-                        <p><?php the_excerpt_max_charlength(70); ?></p>
-                    </div>
-                    <a href="<?php echo esc_url( home_url( '/services' ) ); ?>#service-<?php echo $c;?>"><?php _e('Read More','mayras'); ?></a>
-                </li>
+            <li class="swiper-slide">
+                <figure>
+                    <img src="<?php the_field('imagen_servicio_home'); ?>" alt="<?php the_title(); ?>">
+                </figure>
+                <div class="title-wrapper">
+                    <h3><?php the_title(); ?></h3>
+                    <p><?php the_excerpt_max_charlength(70); ?></p>
+                </div>
+                <a
+                    href="<?php echo esc_url( home_url( '/services' ) ); ?>#service-<?php echo $c;?>"><?php _e('Read More','mayras'); ?></a>
+            </li>
             <?php endwhile; ?>
             <?php endif; ?>
             <?php wp_reset_query(); ?>

@@ -1,0 +1,11 @@
+@import './rules/variables';
+@import './rules/base';
+@import './rules/utilities';
+@import './rules/_fonts';
+@import './rules/_iconmoon';
+@import './rules/_constructor-mixins';
+//Components.
+@import './components/_navbar';
+@import './components/swiper';
+@import './components/banner';
+@import './components/home';
