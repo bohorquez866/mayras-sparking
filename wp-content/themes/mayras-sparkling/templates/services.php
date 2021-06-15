@@ -2,14 +2,14 @@
 /* Template Name: Template - Services*/
 get_header(); ?>
 <section class="services_section">
-    <div class="services_section_content">
+    <div class="services_section_content wrap">
         <?php
             $args = array( 
                 'post_type' => 'service', 
                 'post_status' => 'publish',
                 'posts_per_page' => -1
             );
-            $wp_query = new WP_Query($args); ?>
+            $wp_query = new WP_Query($args); ?>  
         <?php if($wp_query->have_posts()) : $a = 0 ?>
         <?php while ($wp_query->have_posts()) : $wp_query->the_post(); $a++ ?>
         <!-- Services IMGS -->
