@@ -184,6 +184,9 @@
                 column-gap: 3rem;
                 row-gap: 2rem;
                 @include mq($bpMedium) {
+                    & * {
+                        font-family: $font_02;
+                    }
                     row-gap: 0;
                     width: 100%;
                     row-gap: 0;
@@ -208,11 +211,11 @@
                             background-color: transparent;
                         }
                     }
-                    & em {
+                    & span {
                         @include mq($bpMedium) {
                             display: initial;
                             color: $white;
-                            font-size: 15px;
+                            font-size: 14px;
                             font-weight: normal;
                             font-family: $font_02;
                         }
@@ -221,7 +224,7 @@
                         @include mq($bpMedium) {
                             font-weight: 400;
                             letter-spacing: 0.05em;
-                            font-size: 15px;
+                            font-size: 14px;
                         }
                     }
                 }

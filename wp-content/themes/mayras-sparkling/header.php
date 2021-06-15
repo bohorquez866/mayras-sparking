@@ -62,7 +62,10 @@
 
 
     <nav class="mobile-menu">
-        <div class="burger-menu">X</div>
+        <div class="burger-menu"><img src="<?php echo get_stylesheet_directory_uri()?>/templates/src/assets/img/x.svg"
+                alt="">
+        </div>
+
         <div class="logo">
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
                 <img src="<?php the_field( 'logo_mobile', 'options' ); ?>" alt="Logo">
