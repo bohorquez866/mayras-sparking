@@ -1,0 +1,91 @@
+.services_section {
+    display: flex;
+}
+
+.services_titles {
+    width: 18%;
+    background-color: $pink;
+    min-width: 33rem;
+    padding-top: 14rem;
+    & h1 {
+        font-weight: 500;
+        font-size: 33px;
+        line-height: 43px;
+        /* or 132% */
+        text-align: left;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border-bottom: .5px solid $white;
+        padding-bottom: 2rem;
+        padding-left: 4rem;
+        margin-bottom: 35px;
+    }
+    & * {
+        color: $white;
+    }
+    & .services_titles_list_item {
+        margin-left: 4rem;
+        margin-bottom: 35px;
+        padding-bottom: 1rem;
+        border-bottom: .5px solid rgba(255, 255, 255, 0.7);
+        ;
+        & h3 {
+            font-weight: normal;
+            font-size: 20px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 0;
+        }
+        & h4 {
+            font-weight: normal;
+            font-size: 25px;
+            letter-spacing: 0.05em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+}
+
+.services_lists {
+    background-color: $green;
+    min-width: 600px;
+    width: 600px;
+    padding: 5rem 8rem;
+    & h3 {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 18px;
+        /* or 112% */
+        text-transform: uppercase;
+        letter-spacing: 0.23em;
+    }
+    & h2 {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 35px;
+        line-height: 26px;
+        /* or 74% */
+        letter-spacing: 0.03em;
+        margin-bottom: 35px;
+    }
+    & .services_lists_item_content {
+        margin-bottom: 5rem;
+        & p {
+            @extend .text;
+        }
+    }
+    &_item {
+        & h3 {
+            font-weight: normal;
+            font-size: 22px;
+            line-height: 16px;
+            /* or 73% */
+            letter-spacing: 0.03em;
+            color: #696969;
+        }
+    }
+}
+
+.services_img {
+    display: block;
+    overflow: hidden;
+}
