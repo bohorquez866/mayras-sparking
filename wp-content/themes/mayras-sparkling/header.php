@@ -11,6 +11,26 @@
 
 <body <?php body_class(); ?>>
     <header class="header">
+        <section class="navbar-mobile">
+
+            <div class="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+
+            <div class="logo">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                    <img src="<?php the_field( 'logo', 'options' ); ?>" alt="Logo">
+                </a>
+            </div>
+        </section>
+
+
+        <div class="spot"></div>
+
+
         <nav class="navbar">
             <div class="logo">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -39,11 +59,7 @@
 
     </header>
 
-    <div class="burger-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+
 
     <nav class="mobile-menu">
         <div class="burger-menu">X</div>

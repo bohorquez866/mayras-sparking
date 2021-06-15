@@ -7,6 +7,19 @@
     margin-top: 25px;
     @include mq($bpLarge) {
         height: 50rem;
+        margin-bottom: 9rem;
+    }
+    @include mq($bpMedium) {
+        max-width: 100%;
+        height: 30rem;
+        margin-top: 0;
+        & .swiper-pagination {
+            bottom: 1rem;
+        }
+    }
+    & .swiper-pagination-bullet {
+        height: 10px;
+        width: 10px;
     }
     & .swiper-item {
         height: 66rem;
@@ -17,9 +30,21 @@
         @include mq($bpLarge) {
             height: 50rem;
         }
+        @include mq($bpMedium) {
+            max-width: 100%;
+            height: 30rem;
+            justify-content: center;
+        }
         & article {
             align-self: flex-end;
             margin: 0 0 8rem 8rem;
+            @include mq($bpLarge) {
+                margin: 0 0 5rem 5rem;
+            }
+            @include mq($bpMedium) {
+                margin: 0 0 1.5rem 0;
+                text-align: center;
+            }
             & * {
                 color: $white;
                 font-weight: 500;
@@ -29,13 +54,28 @@
                 font-size: 6rem;
                 line-height: 43px;
                 /* or 72% */
+                font-weight: 400;
                 margin-bottom: 1.5rem;
                 text-transform: uppercase;
+                @include mq($bpLarge) {
+                    font-size: 5rem;
+                }
+                @include mq($bpMedium) {
+                    font-size: 25px;
+                    margin: 0;
+                }
             }
             & span {
                 font-weight: 500;
                 font-size: 30px;
                 line-height: 26px;
+                font-weight: 300;
+                @include mq($bpLarge) {
+                    font-size: 22px;
+                }
+                @include mq($bpMedium) {
+                    font-size: 21px;
+                }
             }
             & a {
                 display: block;
@@ -43,6 +83,18 @@
                 font-size: 18px;
                 margin-top: 3rem;
                 @include btn-creator(0, $white, 22rem, 37px);
+                @include mq($bpLarge) {
+                    width: 19rem;
+                    font-size: 15px;
+                }
+                @include mq($bpMedium) {
+                    margin-bottom: 4rem;
+                    @include margin-x;
+                    margin-top: 1.5rem;
+                    background-color: $green;
+                    border: 1px solid $green;
+                    color: $black;
+                }
             }
         }
     }

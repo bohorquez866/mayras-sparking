@@ -3,7 +3,7 @@
         <div class="footer__wrapper">
             <figure class="logo">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                    <img src="<?php the_field( 'logo', 'options' ); ?>" alt="Logo">
+                    <img src="<?php the_field( 'logo_footer', 'options' ); ?>" alt="Logo">
                 </a>
             </figure>
 
@@ -26,19 +26,19 @@
                     </p>
                 </li>
                 <li>
-                    <span><?php the_field( 'telefono','options'); ?></span>
-                    <a href="tel:<?php the_field( 'titulo_telefono','options'); ?>"><?php the_field( 'titulo_telefono', 'options' ); ?>
+                    <span><?php the_field( 'titulo_telefono','options'); ?></span>
+                    <a href="tel:<?php the_field( 'telefono','options'); ?>">
                         <?php the_field( 'telefono','options'); ?></a>
                 </li>
                 <li>
                     <span><?php the_field( 'titulo_email','options'); ?></span>
-                    <a href="mailto:<?php the_field( 'email','options'); ?>"><?php the_field( 'titulo_email', 'options' ); ?>
+                    <a href="mailto:<?php the_field( 'email','options'); ?>">
                         <?php the_field( 'email','options'); ?>
                     </a>
                 </li>
 
                 <div class="social-footer">
-                    <span><?php the_field( 'titulo_email','options'); ?></span>
+                    <span><?php the_field( 'titulo_footer','options'); ?></span>
                     <ul>
                         <?php echo do_shortcode('[social_media]'); ?>
                     </ul>
@@ -52,7 +52,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
-    let aos = AOS.init({
+let aos = AOS.init({
     // Global settings:
     disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
     startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on

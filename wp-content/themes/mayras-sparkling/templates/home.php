@@ -52,7 +52,13 @@ get_header(); ?>
                 <p><?php echo $first_word; ?></p> <strong><?php echo $second_word; ?></strong>
             </h1>
             <p><?php the_field( 'texto_about_inicio'); ?></p>
-            <a href="<?php echo esc_url( home_url( '/services' ) ); ?>"><?php the_field( 'label_contact_inicio'); ?></a>
+            <div class="buttons">
+                <a
+                    href="<?php echo esc_url( home_url( '/services' ) ); ?>"><?php the_field( 'label_contact_inicio'); ?></a>
+                <a
+                    href="<?php echo esc_url( home_url( '/contact' ) ); ?>"><?php the_field( 'label_contact_inicio'); ?></a>
+
+            </div>
         </div>
     </div>
 </section>

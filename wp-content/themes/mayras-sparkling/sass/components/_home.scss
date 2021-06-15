@@ -2,12 +2,22 @@
     max-width: 75%;
     @include margin-x;
     margin-bottom: 17rem;
+    @include mq($bpLarge) {
+        margin-bottom: 6rem;
+    }
+    @include mq($bpMedium) {
+        padding: 0 3rem;
+        max-width: 100%;
+    }
     &-content {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: min-content;
         column-gap: 0;
         justify-items: center;
+        @include mq($bpMedium) {
+            grid-template-columns: 1fr;
+        }
         & .home-about-info {
             display: flex;
             justify-content: flex-start;
@@ -18,9 +28,23 @@
             & h1 {
                 @include title(3.5rem, 1.6rem, $font_01, uppercase);
                 margin-bottom: 38px;
+                @include mq($bpLarge) {
+                    margin-bottom: 2rem;
+                }
+                @include mq($bpMedium) {
+                    @include title(22px, 1.5rem, $font_01, uppercase);
+                    & strong {
+                        letter-spacing: 0.02em;
+                    }
+                }
             }
             & p {
                 @extend .text;
+            }
+            & .buttons {
+                display: flex;
+                justify-content: space-between;
+                column-gap: 3rem
             }
             & a {
                 @include btn-creator(0, $green, 17rem, 47px);
@@ -31,28 +55,54 @@
                 /* identical to box height, or 82% */
                 text-align: center;
                 letter-spacing: 0.15em;
+                background-color: $green;
+                justify-self: flex-end;
+                margin-top: 4rem;
+                @include mq($bpLarge) {
+                    margin-top: 2rem;
+                    width: 12rem;
+                    height: 32px;
+                }
+                @include mq($bpMedium) {
+                    width: 50%;
+                }
+                &:nth-of-type(2) {
+                    background-color: transparent;
+                    border: 1px solid black;
+                    @include mq-min($bpMedium) {
+                        display: none;
+                    }
+                }
                 &:hover {
                     background-color: transparent;
                     border: 1px solid black;
                     color: $black;
                 }
-                background-color: $green;
-                justify-self: flex-end;
-                margin-top: 4rem;
             }
         }
         //imgs
         & .home-about-imgs {
             position: relative;
+            @include mq($bpMedium) {
+                display: none;
+            }
             & figure {
                 width: 52.3rem;
                 height: 100%;
+                @include mq($bpLarge) {
+                    width: 37.5rem;
+                }
                 &:nth-of-type(2) {
                     position: absolute;
                     top: -9%;
                     right: -8%;
                     width: 31.7rem;
                     height: 43.4rem;
+                    @include mq($bpLarge) {
+                        height: 100%;
+                        width: 23rem;
+                        object-fit: cover;
+                    }
                 }
                 & img {
                     width: 100%;
@@ -69,11 +119,21 @@
     background-color: #F7FAFD;
     padding: 15.8rem 0;
     opacity: 1!important; //remove this Important later
+    @include mq($bpLarge) {
+        padding: 6rem 0;
+    }
+    @include mq($bpMedium) {
+        padding: 6rem 3rem;
+    }
     & h3 {
         @include title(3.5rem, 1.6rem, $font_01, uppercase);
         margin-bottom: 38px;
         width: fit-content;
         @include margin-x;
+        @include mq($bpMedium) {
+            text-align: center;
+            @include title(2.2rem, 1.5rem, $font_01, uppercase);
+        }
         & span {
             text-align: center;
             display: block;
@@ -104,17 +164,29 @@
         font-style: normal;
         font-weight: 300;
         font-size: 16px;
-        line-height: 27px;
-        /* or 169% */
+        line-height: 169%;
         letter-spacing: 0.05em;
         margin-bottom: 6rem;
+        @include mq($bpLarge) {
+            font-size: 14px;
+            max-width: 630px;
+        }
     }
     & .home-service-swiper {
         max-width: 125rem;
         @include margin-x;
+        @include mq($bpLarge) {
+            max-width: 75%;
+        }
+        @include mq($bpMedium) {
+            max-width: 100%;
+        }
         overflow: hidden;
         & li {
             max-width: 275px;
+            @include mq($bpMedium) {
+                max-width: 100%;
+            }
             & h3 {
                 margin: 27px 0 22px 0;
                 @include margin-x;
@@ -122,9 +194,21 @@
             & figure {
                 width: 100%;
                 height: 384px;
+                overflow: hidden;
+                @include mq($bpLarge) {
+                    height: 30rem;
+                }
+                @include mq($bpMedium) {
+                    border-radius: 10px;
+                    width: 100%;
+                    height: 128px;
+                }
                 & img {
                     width: 100%;
                     height: 100%;
+                    @include mq($bpMedium) {
+                        object-fit: cover;
+                    }
                 }
             }
             & p {
@@ -144,6 +228,10 @@
                 text-align: center;
                 letter-spacing: 0.2em;
                 @include transition;
+                @include mq($bpLarge) {
+                    width: 13rem;
+                    font-size: 13px;
+                }
                 &:hover {
                     background-color: $green;
                     border-color: $green;
@@ -161,11 +249,20 @@
     background-position: center center;
     background-repeat: no-repeat;
     padding: 11.3rem 0;
+    @include mq($bpLarge) {
+        padding: 6rem 0;
+    }
+    @include mq($bpMedium) {
+        padding: 6rem 3rem;
+    }
     & h3 {
         @include title(3.5rem, 1.6rem, $font_01, uppercase);
         width: fit-content;
         @include margin-x;
         margin-bottom: 7rem;
+        @include mq($bpMedium) {
+            @include title(2.2rem, 1.5rem, $font_01, uppercase);
+        }
         &,
         & *:not(strong) {
             text-align: center;
@@ -187,6 +284,9 @@
             bottom: -4rem;
             left: 0;
             right: 0;
+            @include mq($bpLarge) {
+                bottom: -3rem;
+            }
             & .swiper-pagination-bullet {
                 margin-right: 1rem;
             }
@@ -211,6 +311,9 @@
             color: $white;
             letter-spacing: 0.05em;
             text-align: center;
+            @include mq($bpMedium) {
+                font-size: 14px;
+            }
         }
     }
 }
@@ -220,10 +323,19 @@
     max-width: 75%;
     @include margin-x;
     padding: 12.4rem 0;
+    @include mq($bpLarge) {
+        padding: 6rem 0;
+    }
+    @include mq($bpMedium) {
+        display: none;
+    }
     & .contact-us-form {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         align-items: center;
+        @include mq($bpLarge) {
+            column-gap: 3rem;
+        }
         & h1 {
             @include title(35px, 16px, $font_02, uppercase);
             height: fit-content;

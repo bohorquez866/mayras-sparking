@@ -4,6 +4,9 @@
     padding-top: 21px;
     border-bottom: 2px solid #000;
     padding-bottom: 2rem;
+    @include mq($bpMedium) {
+        display: none;
+    }
     &,
     &__list,
     & .header_fixed ul {
@@ -30,6 +33,9 @@
             padding: 1rem 0;
             width: 13.7rem;
             @include transition;
+            @include mq($bpLarge) {
+                padding: .7rem 1rem;
+            }
             &.current-menu-item,
             &:hover {
                 background-color: $green;
@@ -40,6 +46,9 @@
                 font-family: $font_01;
                 font-weight: 500;
                 font-size: 13px;
+                @include mq($bpLarge) {
+                    font-size: 15px;
+                }
             }
         }
         & .sub-menu {
@@ -54,11 +63,70 @@
         margin-left: auto;
         & a {
             font-size: 25px;
+            @include mq($bpLarge) {
+                font-size: 20px;
+            }
         }
     }
 }
 
-//mobile-menu
+.navbar-mobile {
+    background-color: $white;
+    padding: 1rem 0;
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+    &.active {
+        position: fixed;
+        box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.23);
+    }
+    & .logo {
+        width: 81px;
+        height: 50px;
+        @include margin-x;
+        & img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    @include mq-min($bpMedium) {
+        display: none;
+    }
+}
+
+
+/*
+* Mobile Menu
+*/
+
+.burger-menu {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 20px;
+    z-index: 10;
+    width: fit-content;
+    padding: 1rem 3rem 1rem 1.5rem;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    @include mq($bpBig) {
+        display: block;
+    }
+    & span {
+        display: block;
+        width: 26px;
+        height: 3px;
+        background-color: $black;
+        border-radius: 2rem;
+        &:not(:last-of-type) {
+            margin-bottom: .6rem;
+        }
+    }
+}
+
 .mobile-menu {
     display: none;
     position: fixed;
@@ -67,15 +135,11 @@
     right: -100%;
     top: 0;
     width: 100%;
-    height: 100vh;
-    background-color: $white;
+    height: 100%;
+    background-color: $green;
     overflow: hidden;
     @include transition;
     z-index: 15;
-    background-color: #0076B5;
-    background-blend-mode: multiply;
-    background-size: cover;
-    background-position: center center;
     @include mq($bpBig) {
         flex-direction: column;
         display: flex;
@@ -98,8 +162,8 @@
             display: block;
             @include margin-x;
             width: fit-content;
-            width: 80px;
-            height: 89px;
+            width: 112px;
+            height: auto;
         }
         & img {
             width: 100%;
@@ -141,11 +205,16 @@
             height: 45px;
             display: flex;
             align-items: center;
-            padding-left: 6.5rem;
+            padding-left: 4.5rem;
             font-weight: 500;
             font-size: 17px;
             line-height: 14px;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.03em;
+            width: 100%;
+            & a {
+                letter-spacing: 0.03em;
+                font-size: 17px;
+            }
         }
     }
     &.current-menu-item,
@@ -157,9 +226,13 @@
     & .current-menu-item,
     & .current-menu-item:hover {
         @include transition;
-        background-color: $white;
+        background-color: $white!important;
+        border-bottom: none;
         & * {
             color: $black;
+        }
+        li+& {
+            border-bottom: none;
         }
         &::before {
             opacity: 0;
@@ -171,10 +244,10 @@
         font-size: 20px;
         font-weight: 600;
         margin-bottom: 1.6rem;
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid $black;
         text-align: center;
         & a {
-            color: $white;
+            color: $black;
         }
     }
     & li.active {
@@ -199,11 +272,12 @@
             & h3 {
                 grid-column: 1/-1;
                 & p {
-                    color: $white;
+                    color: $black;
                     font-weight: bold;
                     font-size: 18px;
-                    font-family: $primary-font;
-                    margin-bottom: 15px;
+                    font-family: $font_01;
+                    margin-bottom: 0;
+                    text-transform: uppercase;
                 }
             }
             & i {
@@ -213,15 +287,21 @@
                 margin: 0;
                 width: fit-content;
                 padding-left: 0;
-                margin-right: 0;
                 margin-left: 0;
+                padding-bottom: 0;
                 border: none;
                 text-align: left;
                 & * {
                     font-size: 17px;
+                    font-family: $font_02;
+                    font-weight: normal;
+                    font-size: 14px;
                     & a {
                         display: block;
-                        color: $white;
+                        color: $black;
+                    }
+                    & strong {
+                        color: $black;
                     }
                 }
                 &>p {
@@ -231,12 +311,17 @@
                     font-weight: normal;
                     font-size: 16px;
                     font-family: $primary-font;
+                    &:last-of-type {
+                        margin-bottom: 0;
+                    }
                 }
             }
             & .social-media-footer {
                 & li {
+                    margin-right: 0;
+                    margin-left: auto;
                     &:nth-of-type(1) {
-                        margin-bottom: 20px;
+                        margin-bottom: 10px;
                     }
                 }
                 & a {

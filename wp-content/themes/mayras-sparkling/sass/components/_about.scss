@@ -2,6 +2,10 @@
     margin-top: 25px;
     max-width: 75%;
     @include margin-x;
+    @include mq($bpMedium) {
+        margin-top: 0;
+        max-width: 100%;
+    }
     & .banner_general {
         background: rgba(0, 0, 0, 0.5);
         background-blend-mode: multiply;
@@ -12,19 +16,29 @@
         flex-direction: column;
         height: 26rem;
         padding-left: 50%;
+        @include mq($bpMedium) {
+            padding-left: 0;
+        }
         & h1,
         & h3 {
             text-align: left;
             @include title(35px, 16px, $font_02, uppercase);
+            @include mq($bpMedium) {
+                max-width: 100%;
+                text-align: center;
+            }
         }
         h1 {
             font-size: 16px;
             line-height: 18px;
-            /* or 112% */
             text-align: left;
             letter-spacing: 0.23em;
             color: #00FFD1;
             font-family: $font_01;
+            @include mq($bpMedium) {
+                font-size: 15px;
+                text-align: center;
+            }
         }
         h3 {
             font-family: $font_01;
@@ -36,6 +50,10 @@
             color: $white;
             max-width: 21rem;
             text-transform: initial;
+            @include mq($bpMedium) {
+                max-width: 100%;
+                font-size: 22px;
+            }
         }
     }
 }
@@ -52,10 +70,18 @@
     margin-top: -12rem;
     column-gap: 7rem;
     padding-left: 6.5%;
+    //
     @include mq($bpLarge) {
         padding-left: 2.5%;
         column-gap: 5rem;
         margin-bottom: 10rem;
+    }
+    @include mq($bpMedium) {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+        padding: 0 3rem;
+        margin-bottom: 6rem;
+        margin-top: 0;
     }
     & .section_about_contact_image {
         width: 520px;
@@ -63,6 +89,9 @@
         @include mq($bpLarge) {
             width: 42rem;
             height: 62rem;
+        }
+        @include mq($bpMedium) {
+            display: none;
         }
         & img {
             width: 100%;
@@ -78,6 +107,10 @@
         margin-top: 7rem;
         @include mq($bpLarge) {
             margin-top: 12rem;
+        }
+        @include mq($bpLarge) {
+            width: 100%;
+            margin-top: 5rem;
         }
         & p {
             @extend .text;
@@ -102,6 +135,10 @@
             /* identical to box height, or 82% */
             text-align: center;
             letter-spacing: 0.15em;
+            @include mq($bpMedium) {
+                width: 15rem;
+                height: 31px;
+            }
             &:hover {
                 background-color: transparent;
                 border: 1px solid black;
@@ -137,12 +174,21 @@
 
 //about  Questions
 .section_about_questions {
-    padding: 13rem 0 16rem 0;
+    padding: 13rem 0;
     max-width: 110rem;
     @include margin-x;
+    @include mq($bpLarge) {
+        padding: 5.5rem 0 6rem 0;
+    }
+    @include mq($bpMedium) {
+        padding: 6rem 3rem;
+    }
     & h3 {
         @include title(35px, 16px, $font_02, uppercase);
         max-width: 45rem;
+        @include mq($bpMedium) {
+            @include title(22px, 15px, $font_02, uppercase);
+        }
         & strong {
             margin-top: 1rem;
         }
@@ -153,6 +199,13 @@
         grid-template-columns: repeat(2, 1fr);
         column-gap: 4.5rem;
         row-gap: 5rem;
+        @include mq($bpLarge) {
+            row-gap: 3.5rem;
+            margin-top: 4.5rem;
+        }
+        @include mq($bpMedium) {
+            grid-template-columns: 1fr;
+        }
         & h4 {
             @include btn-creator(0, $black, 100%, 32px);
             text-align: left;
@@ -162,7 +215,7 @@
             font-weight: normal;
             font-size: 14px;
             line-height: 11px;
-            /* identical to box height, or 82% */
+            cursor: initial;
             letter-spacing: 0.15em;
         }
         & p {

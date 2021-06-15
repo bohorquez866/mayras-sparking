@@ -116,8 +116,8 @@
         grid-column: 1/-1;
         & img {
             @include mq($bpMedium) {
-                width: 63px;
-                height: 96px;
+                width: 13rem;
+                height: auto;
             }
         }
     }
@@ -261,22 +261,15 @@
                 & div.social-footer {
                     display: flex;
                     align-items: center;
-                    & p {
+                    & span {
                         color: $white;
                         margin-right: 21px;
                         display: flex;
                         align-items: flex-end;
-                        @include mq($bpMedium) {
-                            margin-right: 0;
-                            display: none;
-                        }
                     }
                     & a {
                         display: block;
                         font-size: 2rem;
-                        @include mq-min($bpMedium) {
-                            margin-right: 2rem;
-                        }
                     }
                     @include mq($bpMedium) {
                         justify-self: end;
@@ -286,14 +279,28 @@
                         & a {
                             display: block;
                             position: relative;
-                            font-size: 35px;
+                            font-size: 25px;
                             height: fit-content;
-                            height: 35px;
-                            &:first-of-type {
-                                margin-bottom: 2rem;
+                            height: 25px;
+                            margin-left: 2rem;
+                        }
+                        & span {
+                            margin-right: 0;
+                            display: none;
+                        }
+                        & ul {
+                            flex-direction: column;
+                            & li a {
+                                &:nth-of-type(1) {
+                                    margin-top: 2rem;
+                                }
+                                &.icon-instagram {
+                                    margin-top: 1rem;
+                                }
                             }
                         }
                     }
+                    //
                     & li {
                         &:not(:nth-of-type(2)) {
                             display: block!important;
@@ -321,3 +328,7 @@
         }
     }
 }
+
+// #wpadminbar {
+//  display: none;
+// }

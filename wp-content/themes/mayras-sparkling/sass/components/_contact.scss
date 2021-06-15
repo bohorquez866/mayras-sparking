@@ -2,6 +2,10 @@
     margin-top: 25px;
     max-width: 75%;
     @include margin-x;
+    @include mq($bpMedium) {
+        max-width: 100%;
+        margin-top: 0;
+    }
     & .banner_general {
         background: rgba(0, 0, 0, 0.5);
         background-blend-mode: multiply;
@@ -24,6 +28,9 @@
             letter-spacing: 0.23em;
             color: #00FFD1;
             text-align: center;
+            @include mq($bpMedium) {
+                font-size: 15px;
+            }
         }
         h3 {
             font-family: $font_01;
@@ -35,6 +42,10 @@
             letter-spacing: 0.03em;
             color: $white;
             margin-top: 2rem;
+            @include mq($bpMedium) {
+                font-size: 22px;
+                margin-top: 0;
+            }
         }
     }
 }
@@ -43,6 +54,13 @@
     max-width: 75%;
     @include margin-x;
     padding: 12.4rem 0;
+    @include mq($bpLarge) {
+        padding: 6rem 0;
+    }
+    @include mq($bpMedium) {
+        max-width: 100%;
+        padding: 6rem 3rem;
+    }
     & .contact-us-form {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -50,10 +68,17 @@
         @include mq($bpLarge) {
             column-gap: 7rem
         }
+        @include mq($bpMedium) {
+            grid-template-columns: 1fr
+        }
         & h1 {
             @include title(35px, 16px, $font_02, uppercase);
             height: fit-content;
             margin-top: 8rem;
+            @include mq($bpMedium) {
+                @include title(22px, 15px, $font_02, uppercase);
+                margin-top: 0;
+            }
             & span {
                 display: block;
             }
@@ -66,17 +91,29 @@
             align-self: flex-start;
             justify-self: center;
             margin-left: 25px;
+            @include mq($bpMedium) {
+                margin-left: 0;
+                grid-row: unset;
+                grid-column: unset;
+            }
         }
         &>p {
             @extend .text;
             letter-spacing: 0.05em;
             margin-top: 21.5rem;
+            @include mq($bpMedium) {
+                margin-top: 2.3rem;
+            }
         }
         //form
         & .wpcf7 {
             max-width: 450px;
+            @include mq($bpMedium) {
+                margin-top: 3.5rem;
+            }
             & * {
                 width: 100%;
+                height: fit-content;
             }
             & label {
                 font-family: $font_01;
@@ -111,6 +148,10 @@
                 color: $black;
                 margin-top: 2rem;
                 display: block;
+                @include mq($bpMedium) {
+                    background-color: $green;
+                    border: 1px solid $green;
+                }
                 &:hover {
                     background-color: $green;
                     border-color: $green;
@@ -133,4 +174,8 @@
             }
         }
     }
+}
+
+.body.logged-in {
+    padding-top: 0!important;
 }
