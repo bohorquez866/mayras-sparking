@@ -144,19 +144,101 @@ const options = {
 const observer = new IntersectionObserver(handleScroll, options);
 observer.observe($spot)
 
-//accordion
 
-var acc = document.getElementsByClassName("accordion");
-var i;
+/*
+ *accordion
+ */
 
-for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-        } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
+
+// var acc = document.getElementsByClassName("accordion");
+// var i;
+
+// for (i = 0; i < acc.length; i++) {
+//     acc[i].addEventListener("click", function() {
+//         this.classList.toggle("active");
+//         var panel = this.nextElementSibling;
+//         if (panel.style.maxHeight) {
+//             panel.style.maxHeight = null;
+//         } else {
+//             panel.style.maxHeight = panel.scrollHeight + "px";
+//         }
+//     });
+// }
+
+
+const accordion = document.querySelectorAll('.services_lists_items');
+
+if (accordion) {
+    accordion.forEach(acc => {
+        const accordionItems = acc.querySelectorAll('.services_lists_item');
+        accordionItems.forEach((item) => {
+            const title = item.querySelector('.accordion');
+
+            title.addEventListener('click', (e) => {
+
+                const opened_item = acc.querySelector('.active');
+                // Toggle current item
+                toggle_item(item);
+                // Close earlier opened item if exists
+                if (opened_item && opened_item !== item) {
+                    toggle_item(opened_item);
+                }
+            });
+        });
+        const toggle_item = (item) => {
+            const body = item.querySelector('.panel');
+            if (item.classList.contains('active')) {
+                body.removeAttribute('style');
+                item.classList.remove('active');
+            } else {
+                body.style.height = body.scrollHeight + 'px';
+                item.classList.add('active');
+            }
         }
+        toggle_item(accordionItems[0]);
+
     });
 }
+
+
+/*
+ * Tabs
+ */
+
+function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "flex";
+    evt.currentTarget.className += " active";
+}
+
+
+var ids, tablinks;
+tablinks = document.querySelectorAll('.tablinks');
+var hashOriginal = window.location.hash;
+var hash = hashOriginal.replace('#', '');
+for (let i = 0; i < tablinks.length; i++) {
+    tablinks[i].setAttribute('id', `${i + 1}`);
+}
+ids = tablinks.forEach(tab => {
+    if (tab.id == hash) {
+        let result = tab;
+        result.click();
+    } else if (hash == '') {
+        tablinks[0].click();
+    }
+});

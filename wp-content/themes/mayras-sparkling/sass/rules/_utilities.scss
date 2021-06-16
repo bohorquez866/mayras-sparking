@@ -91,30 +91,42 @@
 .accordion {
     color: #696969;
     cursor: pointer;
-    padding: 18px;
     width: 100%;
     text-align: left;
     border: none;
     outline: none;
+    line-height: initial;
+    padding-bottom: 1rem;
     transition: 0.4s;
+    border-bottom: 1px solid #000;
 }
 
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 
 .accordion.active,
-.accordion:hover {
+.accordion:hover,
+.services_lists_item_title.main {
     color: $black;
+}
+
+.services_lists_item_title.main::before {
+    content: '';
 }
 
 
 /* Style the accordion panel. Note: hidden by default */
 
 .panel {
-    padding: 0 18px;
-    max-height: 0;
     overflow: hidden;
+    height: 0;
     transition: max-height 0.2s ease-out;
+    & ul {
+        padding-top: 3rem;
+    }
+    &:first {
+        max-height: initial;
+    }
 }
 
 .accordion:after {
@@ -129,4 +141,9 @@
 .accordion.active:after {
     content: "\2796";
     /* Unicode character for "minus" sign (-) */
+}
+
+//tabs
+.tab-content {
+    display: none;
 }

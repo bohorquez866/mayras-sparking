@@ -3,16 +3,21 @@
 get_header(); ?>
 <section class="services_section">
     <div class="services_section_content wrap">
+
         <?php
             $args = array( 
                 'post_type' => 'service', 
                 'post_status' => 'publish',
                 'posts_per_page' => -1
             );
-            $wp_query = new WP_Query($args); ?>  
+            $wp_query = new WP_Query($args); ?>
         <?php if($wp_query->have_posts()) : $a = 0 ?>
         <?php while ($wp_query->have_posts()) : $wp_query->the_post(); $a++ ?>
-        <!-- Services IMGS -->
+
+
+
+        <div id="<?php echo $a ?>" class="container-tab tab-content">
+            <!-- Services IMGS -->
             <div class="services_img">
                 <div class="services_img_section" id="service-<?php echo $d;?>">
                     <div class="services_img_item">
@@ -32,15 +37,14 @@ get_header(); ?>
                     </div>
                 </div>
             </div>
-
-
-        <!-- Services List -->
-            <div class="services_lists">
+            <!-- Services List -->
+            <section class="services_lists">
                 <h3><?php _e('Services','mayras'); ?></h3>
                 <div class="services_lists_items" id="service-<?php echo $d;?>">
                     <div class="services_lists_item">
-                        <h2 class="services_lists_item_title"><?php the_title(); ?></h2>
-                        <div class="services_lists_item_content"><?php the_content(); ?> </div>
+                        <h2 class="services_lists_item_title accordion main"><?php the_title(); ?></h2>
+
+                        <div class="services_lists_item_content panel main"><?php the_content(); ?> </div>
                     </div>
                     <?php if( have_rows('lista_productos') ): $c = 0  ?>
                     <?php while( have_rows('lista_productos') ): the_row(); $c++ ?>
@@ -49,19 +53,25 @@ get_header(); ?>
                         <h3 class="services_lists_item_title accordion">
                             <?php the_sub_field('titulo_lista_productos'); ?>
                         </h3>
-                        <div class="services_lists_item_content panel"><?php the_sub_field('texto_lista_productos'); ?></div>
+                        <div class="services_lists_item_content panel"><?php the_sub_field('texto_lista_productos'); ?>
+                        </div>
                     </div>
                     <?php endwhile; ?>
                     <?php endif; ?>
                 </div>
-            </div>
+            </section>
+        </div>
+
+
         <?php endwhile; ?>
         <?php endif; ?>
         <?php wp_reset_query(); ?>
+
+
     </div>
 
     <!-- Services titles -->
-    <div class="services_titles">
+    <div class="services_titles tab">
         <h1><?php _e('All Our Services','mayras'); ?></h1>
         <div class="services_titles_list">
             <?php
@@ -73,7 +83,8 @@ get_header(); ?>
                 $wp_query = new WP_Query($args); ?>
             <?php if($wp_query->have_posts()) : $e = 0 ?>
             <?php while ($wp_query->have_posts()) : $wp_query->the_post(); $e++ ?>
-            <div class="services_titles_list_item" data-id="service-<?php echo $d;?>">
+            <div class="services_titles_list_item tablinks" onclick="openCity(event, '<?php echo $e ?>')" data-id="
+                service-<?php echo $d;?>">
                 <h3><?php _e('Services','mayras'); ?></h3>
                 <h4><?php the_title(); ?></h4>
             </div>
