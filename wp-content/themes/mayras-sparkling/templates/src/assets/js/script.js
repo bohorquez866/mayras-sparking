@@ -151,38 +151,83 @@ observer.observe($spot)
 
 
 
-const accordion = document.querySelectorAll('.services_lists_items');
+let accordion = document.querySelectorAll('.services_lists_items');
 
-if (accordion) {
-    accordion.forEach(acc => {
-        const accordionItems = acc.querySelectorAll('.services_lists_item');
-        accordionItems.forEach((item) => {
-            const title = item.querySelector('.accordion');
 
-            title.addEventListener('click', (e) => {
+if (window.innerWidth > 768) {
+    if (accordion) {
+        accordion.forEach(acc => {
+            const accordionItems = acc.querySelectorAll('.services_lists_item');
+            accordionItems.forEach((item) => {
+                const title = item.querySelector('.accordion');
 
-                const opened_item = acc.querySelector('.active');
-                // Toggle current item
-                toggle_item(item);
-                // Close earlier opened item if exists
-                if (opened_item && opened_item !== item) {
-                    toggle_item(opened_item);
-                }
+                title.addEventListener('click', (e) => {
+
+                    const opened_item = acc.querySelector('.active');
+                    console.log(title);
+                    // Toggle current item
+                    toggle_item(item);
+                    // Close earlier opened item if exists
+                    if (opened_item && opened_item !== item) {
+                        toggle_item(opened_item);
+                    }
+                });
             });
-        });
-        const toggle_item = (item) => {
-            const body = item.querySelector('.panel');
-            if (item.classList.contains('active')) {
-                body.removeAttribute('style');
-                item.classList.remove('active');
-            } else {
-                body.style.height = body.scrollHeight + 'px';
-                item.classList.add('active');
-            }
-        }
-        toggle_item(accordionItems[0]);
 
-    });
+
+            const toggle_item = (item) => {
+                const body = item.querySelector('.panel');
+                if (item.classList.contains('active')) {
+                    body.removeAttribute('style');
+                    item.classList.remove('active');
+                } else {
+                    body.style.height = body.scrollHeight + 'px';
+                    item.classList.add('active');
+                }
+            }
+            toggle_item(accordionItems[0]);
+
+        });
+    }
+
+
+} else {
+    let accordion = document.querySelectorAll('.service-mobile');
+    if (accordion) {
+        accordion.forEach(acc => {
+
+            var accordionItems = acc.querySelectorAll('.services_lists_item');
+            accordionItems.forEach((item, index) => {
+                const title = item.querySelector('.accordion');
+
+                title.addEventListener('click', (e) => {
+
+                    const opened_item = acc.querySelector('.active');
+
+                    // Toggle current item
+                    toggle_item(item);
+                    // Close earlier opened item if exists
+                    if (opened_item && opened_item !== item) {
+                        toggle_item(opened_item);
+                    }
+                });
+            });
+            const toggle_item = (item) => {
+                const body = item.querySelector('.panel');
+                if (item.classList.contains('active')) {
+                    body.removeAttribute('style');
+                    item.classList.remove('active');
+                } else {
+                    body.style.height = body.scrollHeight + 'px';
+                    item.classList.add('active');
+                }
+            }
+            toggle_item(accordionItems[0]);
+
+
+
+        });
+    }
 }
 
 
@@ -261,15 +306,6 @@ $prevTabArrow.forEach(prev => {
 
 
 
-
-
-
-
-
-
-
-
-
 let ids, tablinks;
 tablinks = document.querySelectorAll('.tablinks');
 let hashOriginal = window.location.hash;
@@ -284,4 +320,52 @@ ids = tablinks.forEach(tab => {
     } else if (hash == '') {
         tablinks[0].click();
     }
+});
+
+
+//tab for mobile grand-parent 
+
+var btns = document.getElementsByClassName('tab');
+var items = document.getElementsByClassName('item');
+
+var myTabs = function myTabs() {
+    var _this = this;
+    var attribute = this.getAttribute("data-id");
+
+    [...items].forEach(function(element, index, array) {
+        if (element.getAttribute('id') === attribute) {
+            element.classList.add("active");
+            [...btns].forEach(function(element, index, array) {
+                element.classList.remove('active');
+            });
+            _this.classList.add("active");
+        } else {
+            element.classList.remove("active");
+        }
+    });
+};
+[...btns].forEach(function(element, index, array) {
+    element.addEventListener('click', myTabs);
+});
+
+
+
+
+//
+
+let $selectService = document.querySelector('.select-service'),
+    $selectServiceItems = document.querySelectorAll('.select-service ul');
+
+
+$selectService.addEventListener('click', (e) => {
+    console.log(e.target.nodeName);
+
+    if (e.target.nodeName == 'H3') {
+        $selectService.classList.add('active');
+    } else if (e.target.nodeName == 'LI') {
+        $selectService.classList.remove('active');
+
+    }
+
+
 });

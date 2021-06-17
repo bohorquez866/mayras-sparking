@@ -115,5 +115,118 @@ get_header(); ?>
     </div>
 
 
+    <!-- RESPOSNVIE -->
+
+
 </section>
+
+
+<!-- RESPONSIVE -->
+
+<article class="responsive-services">
+
+    <div class="select-service">
+        <h3>All our services</h3>
+        <ul>
+            <?php
+                $args = [ 
+                    'post_type' => 'service', 
+                    'post_status' => 'publish',
+                    'posts_per_page' => -1
+                ];
+                $wp_query = new WP_Query($args); ?>
+
+
+            <?php if($wp_query->have_posts()) : $e = 0 ?>
+
+            <?php while ($wp_query->have_posts()) : $wp_query->the_post(); $e++ ?>
+
+
+            <li class="tab" data-id="servicio-<?php echo  $e ?>"><?php the_title(); ?></li>
+
+
+            <?php endwhile; ?>
+            <?php endif; ?>
+            <?php wp_reset_query(); ?>
+        </ul>
+    </div>
+
+    <section class="services_lists_items">
+
+
+
+
+        <?php
+                $args = [ 
+                    'post_type' => 'service', 
+                    'post_status' => 'publish',
+                    'posts_per_page' => -1
+                ];
+                $wp_query = new WP_Query($args); ?>
+
+        <?php if($wp_query->have_posts()) : $e = 0 ?>
+
+        <?php while ($wp_query->have_posts()) : $wp_query->the_post(); $e++ ?>
+
+
+
+
+
+
+        <div class="service-mobile item" id="servicio-<?php  echo $e ?>">
+            <article class="services_lists_item">
+                <div class="title-responsive accordion">
+                    <h3>Services</h3>
+                    <h4><?php the_title(); ?></h4>
+                </div>
+
+
+                <div class="services_lists_item_content panel main">
+                    <?php the_content(); ?>
+                </div>
+            </article>
+
+
+
+
+
+            <?php if( have_rows('lista_productos') ): $c = 0  ?>
+            <?php while( have_rows('lista_productos') ): the_row(); $c++ ?>
+
+            <article class="services_lists_item">
+
+                <h3 class="services_lists_item_title accordion">
+                    <?php the_sub_field('titulo_lista_productos'); ?>
+                </h3>
+
+                <div class="services_lists_item_content panel">
+                    <?php the_sub_field('texto_lista_productos'); ?>
+                </div>
+
+
+
+            </article>
+            <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
+
+
+
+
+
+        <?php endwhile; ?>
+        <?php endif; ?>
+        <?php wp_reset_query(); ?>
+
+    </section>
+
+
+
+
+
+
+
+
+
+</article>
 <?php get_footer(); ?>

@@ -46,11 +46,9 @@ function add_this_script_footer(){
    wp_enqueue_script('swipper-js');
    wp_register_script('aos', get_stylesheet_directory_uri() . '/templates/src/assets/js/swiper.js');
    wp_enqueue_script('aos');
-   wp_register_script('app', get_stylesheet_directory_uri() . '/dist/js/app.js', 1, true);
    //uncompiled Script
   wp_register_script('script-js', get_stylesheet_directory_uri() . '/templates/src/assets/js/script.js');
    wp_enqueue_script('script-js');
-   wp_enqueue_script('app');
 }
 add_action('wp_footer', 'add_this_script_footer');
 

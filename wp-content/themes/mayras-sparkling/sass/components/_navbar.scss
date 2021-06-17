@@ -243,6 +243,7 @@
             width: fit-content;
             width: 112px;
             height: auto;
+            background-color: #fff;
         }
         & img {
             width: 100%;
@@ -292,6 +293,7 @@
             & a {
                 letter-spacing: 0.03em;
                 font-size: 17px;
+                background-color: transparent!important;
             }
         }
     }
