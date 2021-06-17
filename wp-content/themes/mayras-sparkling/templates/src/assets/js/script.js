@@ -150,21 +150,6 @@ observer.observe($spot)
  */
 
 
-// var acc = document.getElementsByClassName("accordion");
-// var i;
-
-// for (i = 0; i < acc.length; i++) {
-//     acc[i].addEventListener("click", function() {
-//         this.classList.toggle("active");
-//         var panel = this.nextElementSibling;
-//         if (panel.style.maxHeight) {
-//             panel.style.maxHeight = null;
-//         } else {
-//             panel.style.maxHeight = panel.scrollHeight + "px";
-//         }
-//     });
-// }
-
 
 const accordion = document.querySelectorAll('.services_lists_items');
 
@@ -205,9 +190,9 @@ if (accordion) {
  * Tabs
  */
 
-function openCity(evt, cityName) {
+function openTab(evt, tabIdentifier) {
     // Declare all variables
-    var i, tabcontent, tablinks;
+    let i, tabcontent, tablinks;
 
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.getElementsByClassName("tab-content");
@@ -222,17 +207,75 @@ function openCity(evt, cityName) {
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(cityName).style.display = "flex";
+    document.getElementById(tabIdentifier).style.display = "flex";
+    // console.log(tabIdentifier + ' this is from tab');
+    document.getElementById(`${tabIdentifier}`).className += " active";
     evt.currentTarget.className += " active";
+
+
 }
 
+let minimum = 0,
+    tabCounter = 1,
+    $nextTabArrow = document.querySelectorAll('.arrow-next-tab'),
+    $prevTabArrow = document.querySelectorAll('.arrow-prev-tab');
 
-var ids, tablinks;
+
+
+
+$nextTabArrow.forEach(next => {
+
+    if (tabCounter > 0 && tabCounter < $nextTabArrow.length) {
+        next.addEventListener('click', () => {
+
+            tabCounter++;
+            if (tabCounter > $nextTabArrow.length) {
+                tabCounter = 1;
+            }
+            openTab(event, `service-${tabCounter}`);
+            let tablinks2 = document.querySelector(`.tablinks#service-${tabCounter}`);
+            tablinks2.classList.add('active');
+
+            if (tabCounter == $nextTabArrow.length) {
+                tabCounter = minimum;
+            }
+
+        })
+    }
+});
+
+$prevTabArrow.forEach(prev => {
+
+    prev.addEventListener('click', () => {
+
+
+        tabCounter < 2 ? tabCounter = $prevTabArrow.length : tabCounter--
+            openTab(event, `service-${tabCounter}`);
+        console.log(tabCounter);
+    })
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let ids, tablinks;
 tablinks = document.querySelectorAll('.tablinks');
-var hashOriginal = window.location.hash;
-var hash = hashOriginal.replace('#', '');
+let hashOriginal = window.location.hash;
+let hash = hashOriginal.replace('#', '');
 for (let i = 0; i < tablinks.length; i++) {
-    tablinks[i].setAttribute('id', `${i + 1}`);
+    tablinks[i].setAttribute('id', `service-${i + 1}`);
 }
 ids = tablinks.forEach(tab => {
     if (tab.id == hash) {

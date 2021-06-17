@@ -16,7 +16,7 @@ get_header(); ?>
 
 
 
-        <div id="<?php echo $a ?>" class="container-tab tab-content">
+        <div id="service-<?php echo $a ?>" class="container-tab tab-content">
             <!-- Services IMGS -->
             <div class="services_img">
                 <div class="services_img_section" id="service-<?php echo $d;?>">
@@ -33,19 +33,30 @@ get_header(); ?>
                     <?php endwhile; ?>
                     <?php endif; ?>
                     <div class="services_img_item">
+                        <div class="arrow-next-tab icon-arrow2"></div>
+                        <div class="arrow-prev-tab icon-arrow2"></div>
                         <img src="<?php the_field('imagen_servicio'); ?>" alt="Image Servicio">
                     </div>
                 </div>
             </div>
+
+
+
+
             <!-- Services List -->
             <section class="services_lists">
                 <h3><?php _e('Services','mayras'); ?></h3>
+
                 <div class="services_lists_items" id="service-<?php echo $d;?>">
+
                     <div class="services_lists_item">
+
                         <h2 class="services_lists_item_title accordion main"><?php the_title(); ?></h2>
 
                         <div class="services_lists_item_content panel main"><?php the_content(); ?> </div>
                     </div>
+
+
                     <?php if( have_rows('lista_productos') ): $c = 0  ?>
                     <?php while( have_rows('lista_productos') ): the_row(); $c++ ?>
                     <!-- //accordion -->
@@ -73,6 +84,8 @@ get_header(); ?>
     <!-- Services titles -->
     <div class="services_titles tab">
         <h1><?php _e('All Our Services','mayras'); ?></h1>
+
+
         <div class="services_titles_list">
             <?php
                 $args = array( 
@@ -81,10 +94,17 @@ get_header(); ?>
                     'posts_per_page' => -1
                 );
                 $wp_query = new WP_Query($args); ?>
+
+
             <?php if($wp_query->have_posts()) : $e = 0 ?>
+
             <?php while ($wp_query->have_posts()) : $wp_query->the_post(); $e++ ?>
-            <div class="services_titles_list_item tablinks" onclick="openCity(event, '<?php echo $e ?>')" data-id="
-                service-<?php echo $d;?>">
+
+
+            <div class="services_titles_list_item tablinks" onclick="openTab(event, 'service-<?php echo  $e ?>')"
+                data-id="service-<?php echo $e;?>">
+
+
                 <h3><?php _e('Services','mayras'); ?></h3>
                 <h4><?php the_title(); ?></h4>
             </div>
