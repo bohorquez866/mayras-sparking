@@ -89,9 +89,10 @@ get_header(); ?>
             <?php if($wp_query->have_posts()) : $c = 0 ?>
             <?php while ($wp_query->have_posts()) : $wp_query->the_post(); $c++ ?>
             <li class="swiper-slide">
-                <figure>
-                    <img src="<?php the_field('imagen_servicio_home'); ?>" alt="<?php the_title(); ?>">
-                </figure>
+                <picture>
+                    <source media="(min-width: 768px)" srcset="<?php the_field('imagen_servicio_home'); ?>"/>
+                    <img src="<?php the_field('imagen_servicio_home_mobile'); ?>" alt="<?php the_title(); ?>">
+                </picture>
                 <div class="title-wrapper">
                     <h3><?php the_title(); ?></h3>
                     <p><?php the_excerpt_max_charlength(70); ?></p>
