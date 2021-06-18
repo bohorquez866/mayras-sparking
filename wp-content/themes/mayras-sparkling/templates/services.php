@@ -51,8 +51,11 @@ get_header(); ?>
 
                     <div class="services_lists_item">
 
-                        <h2 class="services_lists_item_title accordion main"><?php the_title(); ?></h2>
+                        <h2 class="services_lists_item_title accordion main">
 
+                            <i class="icon-cross"></i>
+                            <?php the_title(); ?>
+                        </h2>
                         <div class="services_lists_item_content panel main"><?php the_content(); ?> </div>
                     </div>
 
@@ -61,7 +64,8 @@ get_header(); ?>
                     <?php while( have_rows('lista_productos') ): the_row(); $c++ ?>
                     <!-- //accordion -->
                     <div class="services_lists_item">
-                        <h3 class="services_lists_item_title accordion">
+                        <h3 class="services_lists_item_title accordion ">
+                            <i class="icon-cross"></i>
                             <?php the_sub_field('titulo_lista_productos'); ?>
                         </h3>
                         <div class="services_lists_item_content panel"><?php the_sub_field('texto_lista_productos'); ?>
@@ -176,6 +180,7 @@ get_header(); ?>
         <div class="service-mobile item" id="servicio-<?php  echo $e ?>">
             <article class="services_lists_item">
                 <div class="title-responsive accordion">
+                    <i class="icon-cross"></i>
                     <h3>Services</h3>
                     <h4><?php the_title(); ?></h4>
                 </div>
@@ -196,6 +201,7 @@ get_header(); ?>
             <article class="services_lists_item">
 
                 <h3 class="services_lists_item_title accordion">
+                    <i class="icon-cross"></i>
                     <?php the_sub_field('titulo_lista_productos'); ?>
                 </h3>
 

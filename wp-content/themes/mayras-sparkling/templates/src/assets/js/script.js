@@ -181,7 +181,7 @@ if (window.innerWidth > 768) {
                     body.removeAttribute('style');
                     item.classList.remove('active');
                 } else {
-                    body.style.height = body.scrollHeight + 'px';
+                    body.style.height = 'initial';
                     item.classList.add('active');
                 }
             }
@@ -218,7 +218,7 @@ if (window.innerWidth > 768) {
                     body.removeAttribute('style');
                     item.classList.remove('active');
                 } else {
-                    body.style.height = body.scrollHeight + 'px';
+                    body.style.height = 'initial';
                     item.classList.add('active');
                 }
             }
@@ -327,12 +327,14 @@ ids = tablinks.forEach(tab => {
 
 var btns = document.getElementsByClassName('tab');
 var items = document.getElementsByClassName('item');
-
+items[0].classList.add('active');
 var myTabs = function myTabs() {
     var _this = this;
     var attribute = this.getAttribute("data-id");
 
     [...items].forEach(function(element, index, array) {
+
+        console.log(element[0]);
         if (element.getAttribute('id') === attribute) {
             element.classList.add("active");
             [...btns].forEach(function(element, index, array) {

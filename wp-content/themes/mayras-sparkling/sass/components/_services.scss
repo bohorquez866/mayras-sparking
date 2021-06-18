@@ -28,6 +28,9 @@
         overflow-y: scroll;
         scrollbar-width: thin;
         scrollbar-width: none;
+        @include mq($bpLarge) {
+            padding-top: 15rem;
+        }
         @include mq($bpMedium) {
             background-color: $white;
             width: 100%;
@@ -52,9 +55,11 @@
             /* or 112% */
             text-transform: uppercase;
             letter-spacing: 0.23em;
+            @include mq($bpLarge) {
+                font-size: 15px;
+            }
             @include mq($bpMedium) {
                 border-bottom: none;
-                font-size: 15px;
             }
         }
         & h2 {
@@ -65,6 +70,9 @@
             /* or 74% */
             letter-spacing: 0.03em;
             @include mq($bpMedium) {
+                font-size: 23px;
+            }
+            @include mq($bpMedium) {
                 border-bottom: none;
                 font-size: 22px;
                 &::after {
@@ -74,6 +82,11 @@
         }
         & .services_lists_item {
             margin-bottom: 5rem;
+            & .services_lists_item_title.accordion {
+                &:hover {
+                    color: $black!important;
+                }
+            }
         }
         & .services_section_content.wrap {
             display: flex;
@@ -88,6 +101,7 @@
             }
             & li {
                 @extend .text;
+                list-style: initial;
                 margin-left: 2rem;
                 &:not(:last-of-type) {
                     margin-bottom: 8px;
@@ -219,6 +233,9 @@
             background: #c22a19;
             border-radius: 5rem;
         }
+        @include mq($bpLarge) {
+            padding-top: 9rem;
+        }
         @include mq($bpMedium) {
             width: 100%;
             overflow: initial;
@@ -235,6 +252,9 @@
             padding-bottom: 2rem;
             padding-left: 4rem;
             margin-bottom: 35px;
+            @include mq($bpLarge) {
+                font-size: 23px;
+            }
         }
         & * {
             color: $white;
@@ -353,6 +373,9 @@
     }
     & .services_lists_item_title.accordion {
         font-size: 21px;
+        &::after {
+            font-size: 3rem;
+        }
     }
     & .service-mobile {
         display: none;

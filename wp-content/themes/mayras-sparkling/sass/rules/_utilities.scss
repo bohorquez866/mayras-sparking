@@ -97,6 +97,7 @@
     outline: none;
     line-height: initial;
     padding-bottom: 1rem;
+    position: relative;
     transition: 0.4s;
     border-bottom: 1px solid #000;
     @include mq($bpMedium) {
@@ -109,6 +110,16 @@
             color: #000000!important;
             font-weight: normal;
             font-size: 22px;
+        }
+    }
+}
+
+.services_lists_item.active {
+    & .accordion {
+        @include mq($bpMedium) {
+            &::after {
+                content: '';
+            }
         }
     }
 }
@@ -133,7 +144,8 @@
     overflow: hidden;
     height: 0;
     transition: max-height 0.2s ease-out;
-    & ul {
+    & ul,
+    & p:first-of-type {
         padding-top: 3rem;
     }
     &:first {
@@ -141,17 +153,20 @@
     }
 }
 
-.accordion:after {
-    content: '\02795';
+.accordion i:before {
     /* Unicode character for "plus" sign (+) */
-    font-size: 13px;
-    color: #000;
+    font-size: 16px;
+    color: #696969!important;
     float: right;
     margin-left: 5px;
+    position: absolute;
+    right: 0!important;
+    top: 25%;
+    @extend .icon-cross;
 }
 
-.accordion.active:after {
-    content: "\2796";
+.accordion.active:before {
+    content: "-";
     /* Unicode character for "minus" sign (-) */
 }
 

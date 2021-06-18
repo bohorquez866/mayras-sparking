@@ -4,6 +4,17 @@
         padding-left: 3rem;
         padding-right: 3rem;
     }
+    & .logo {
+        @include mq-min($bpMedium) {
+            width: 143px;
+            height: 89px;
+            & img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
     & .sub-menu {
         display: none;
     }
@@ -20,6 +31,11 @@
             margin-right: 1rem;
         }
         & .social-footer {
+            & li:first-of-type {
+                @include mq-min($bpMedium) {
+                    margin-right: 1rem;
+                }
+            }
             & a::before {
                 color: $white;
             }
