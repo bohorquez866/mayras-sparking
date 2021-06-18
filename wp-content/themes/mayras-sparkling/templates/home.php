@@ -54,9 +54,7 @@ get_header(); ?>
             <p><?php the_field( 'texto_about_inicio'); ?></p>
             <div class="buttons">
                 <a
-                    href="<?php echo esc_url( home_url( '/services' ) ); ?>"><?php the_field( 'label_contact_inicio'); ?></a>
-                <a
-                    href="<?php echo esc_url( home_url( '/contact' ) ); ?>"><?php the_field( 'label_contact_inicio'); ?></a>
+                    href="<?php echo esc_url( home_url( '/about-us' ) ); ?>"><?php the_field( 'label_contact_inicio'); ?></a>
 
             </div>
         </div>
