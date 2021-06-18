@@ -9,6 +9,7 @@ $burgerMenu = document.querySelectorAll('.burger-menu'),
 if (window.innerWidth > 768) {
     var swiper = new Swiper(".home-swiper.home-swiper1", {
         speed: 1700,
+        loop: true,
         effect: "fade",
         fadeEffect: { crossFade: true },
 
@@ -21,6 +22,10 @@ if (window.innerWidth > 768) {
             el: ` .swiper-pagination`,
             clickable: true
 
+        },
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
         }
     });
 
@@ -28,7 +33,11 @@ if (window.innerWidth > 768) {
         slidesPerView: 4,
         spaceBetween: 40,
         speed: 1700,
-
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
 
         navigation: {
             nextEl: ".next2",
