@@ -72,6 +72,11 @@
                 font-family: $font_01;
                 font-weight: 500;
                 font-size: 13px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                padding-left: 1rem;
+                padding-right: 1rem;
                 @include mq($bpLarge) {
                     font-size: 13px;
                 }
@@ -106,13 +111,14 @@
                 position: relative;
                 & a {
                     background-color: transparent!important;
+                    padding: 0!important;
                 }
                 &::before {
                     content: '';
                     background-color: $black;
                     position: absolute;
                     left: 1rem;
-                    top: 6px;
+                    top: 35%;
                     height: 8px;
                     width: 8px;
                     border-radius: 3rem;
