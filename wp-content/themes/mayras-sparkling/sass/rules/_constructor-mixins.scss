@@ -328,6 +328,12 @@
                     justify-content: center;
                 }
             }
+            & a {
+                &:hover {
+                    color: $white;
+                    border-bottom: 2px solid #fff;
+                }
+            }
         }
     }
 }

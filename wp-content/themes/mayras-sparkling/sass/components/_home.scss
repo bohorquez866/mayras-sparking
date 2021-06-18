@@ -61,7 +61,8 @@
                 @include mq($bpLarge) {
                     margin-top: 2rem;
                     width: 12rem;
-                    height: 32px;
+                    height: 34px;
+                    font-size: 11px;
                 }
                 @include mq($bpMedium) {
                     width: 50%;
@@ -152,9 +153,15 @@
         }
         &.prev {
             left: 12%;
+            @include mq($bpLarge) {
+                left: 8%;
+            }
         }
         &.next {
             right: 12%;
+            @include mq($bpLarge) {
+                right: 8%;
+            }
         }
     }
     &>p {
@@ -191,7 +198,7 @@
                 margin: 27px 0 22px 0;
                 @include margin-x;
             }
-            & figure {
+            & picture {
                 width: 100%;
                 height: 384px;
                 overflow: hidden;
@@ -201,13 +208,17 @@
                 @include mq($bpMedium) {
                     border-radius: 10px;
                     width: 100%;
-                    height: 128px;
+                    height: 130px;
                 }
-                & img {
+                & img,
+                & source {
                     width: 100%;
-                    height: 100%;
+                    height: 384px;
                     @include mq($bpMedium) {
                         object-fit: cover;
+                        border-radius: 10px;
+                        width: 100%;
+                        height: 130px;
                     }
                 }
             }

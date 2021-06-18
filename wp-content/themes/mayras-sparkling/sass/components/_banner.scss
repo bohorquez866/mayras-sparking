@@ -21,6 +21,14 @@
         height: 10px;
         width: 10px;
     }
+    & .arrow {
+        &:hover {
+            background-color: $green;
+            & i::before {
+                color: $black!important;
+            }
+        }
+    }
     & .swiper-item {
         height: 66rem;
         background: rgba(0, 0, 0, 0.4);
@@ -83,6 +91,12 @@
                 font-size: 18px;
                 margin-top: 3rem;
                 @include btn-creator(0, $white, 22rem, 37px);
+                @include transition;
+                &:hover {
+                    background-color: $green;
+                    border: 1px solid $green;
+                    color: $black;
+                }
                 @include mq($bpLarge) {
                     width: 19rem;
                     font-size: 15px;

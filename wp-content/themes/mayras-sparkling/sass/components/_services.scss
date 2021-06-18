@@ -5,8 +5,18 @@
         top: 0;
         width: 100%;
         z-index: 20;
+        background-color: transparent;
+        padding-right: 20.5%;
+        &::before {
+            width: 67%;
+        }
         & .header_fixed {
             padding-right: 4%;
+            & li {
+                &:hover {
+                    background-color: white;
+                }
+            }
         }
     }
 }
@@ -53,7 +63,6 @@
             font-size: 16px;
             line-height: 18px;
             /* or 112% */
-            text-transform: uppercase;
             letter-spacing: 0.23em;
             @include mq($bpLarge) {
                 font-size: 15px;
@@ -81,6 +90,13 @@
             }
         }
         & .services_lists_item {
+            &.active {
+                & .accordion {
+                    & i::before {
+                        color: $black!important;
+                    }
+                }
+            }
             margin-bottom: 5rem;
             & .services_lists_item_title.accordion {
                 &:hover {
@@ -155,6 +171,9 @@
                 color: $white;
                 font-size: 18px;
             }
+            &:hover {
+                background: #FF6858
+            }
         }
         & .arrow-prev-tab {
             left: 0;
@@ -180,11 +199,20 @@
                 height: 100%;
             }
             &:nth-child(1) {
-                position: absolute;
                 height: 60vh;
                 top: 0;
                 left: 0;
-                background: white;
+                position: absolute;
+                &::before {
+                    content: '';
+                    left: 0;
+                    position: absolute;
+                    top: 0;
+                    height: 100%;
+                    width: 100%;
+                    background: rgba(255, 255, 255, .85);
+                    z-index: 1;
+                }
                 & img {
                     mix-blend-mode: multiply;
                 }
@@ -192,15 +220,36 @@
             &:nth-child(2) {
                 position: absolute;
                 left: 0;
+                &::before {
+                    content: '';
+                    left: 0;
+                    position: absolute;
+                    top: 0;
+                    height: 100%;
+                    width: 100%;
+                    background: rgba(0, 255, 209, 0.2);
+                    z-index: 1;
+                }
             }
             &:nth-child(3) {
                 position: absolute;
                 right: 0;
+                &::before {
+                    content: '';
+                    left: 0;
+                    position: absolute;
+                    top: 0;
+                    height: 100%;
+                    width: 100%;
+                    background: rgba(255, 104, 88, 0.2);
+                    z-index: 1;
+                }
             }
             &:nth-child(4) {
                 width: 388px;
                 height: 606px;
                 position: relative;
+                z-index: 5;
                 filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.4));
                 right: 0;
                 @include margin-x;

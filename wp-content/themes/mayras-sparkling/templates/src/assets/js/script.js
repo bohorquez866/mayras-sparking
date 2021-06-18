@@ -19,13 +19,14 @@ if (window.innerWidth > 768) {
 
         pagination: {
             el: ` .swiper-pagination`,
+            clickable: true
 
         }
     });
 
     var swiper = new Swiper(".home-service-swiper", {
         slidesPerView: 4,
-        spaceBetween: 45,
+        spaceBetween: 40,
         speed: 1700,
 
 
@@ -49,7 +50,12 @@ if (window.innerWidth > 768) {
         pagination: {
             el: ` .swiper-pagination-benefits`,
 
-        }
+        },
+        autoplay: {
+            delay: 4500,
+            disableOnInteraction: false,
+        },
+
     });
 
 
@@ -296,7 +302,8 @@ $prevTabArrow.forEach(prev => {
 
         tabCounter < 2 ? tabCounter = $prevTabArrow.length : tabCounter--
             openTab(event, `service-${tabCounter}`);
-        console.log(tabCounter);
+        let tablinks2 = document.querySelector(`.tablinks#service-${tabCounter}`);
+        tablinks2.classList.add('active');
     })
 
 
@@ -306,50 +313,42 @@ $prevTabArrow.forEach(prev => {
 
 
 
-let ids, tablinks;
-tablinks = document.querySelectorAll('.tablinks');
-let hashOriginal = window.location.hash;
-let hash = hashOriginal.replace('#', '');
-for (let i = 0; i < tablinks.length; i++) {
-    tablinks[i].setAttribute('id', `service-${i + 1}`);
-}
-ids = tablinks.forEach(tab => {
-    if (tab.id == hash) {
-        let result = tab;
-        result.click();
-    } else if (hash == '') {
-        tablinks[0].click();
-    }
-});
+
 
 
 //tab for mobile grand-parent 
 
 var btns = document.getElementsByClassName('tab');
 var items = document.getElementsByClassName('item');
-items[0].classList.add('active');
-var myTabs = function myTabs() {
-    var _this = this;
-    var attribute = this.getAttribute("data-id");
+if (items) {
+    items[0].classList.add('active');
+}
 
-    [...items].forEach(function(element, index, array) {
+if (items && btns) {
 
-        console.log(element[0]);
-        if (element.getAttribute('id') === attribute) {
-            element.classList.add("active");
-            [...btns].forEach(function(element, index, array) {
-                element.classList.remove('active');
-            });
-            _this.classList.add("active");
-        } else {
-            element.classList.remove("active");
-        }
+
+    var myTabs = function myTabs() {
+        var _this = this;
+        var attribute = this.getAttribute("data-id");
+
+        [...items].forEach(function(element, index, array) {
+
+            console.log(element[0]);
+            if (element.getAttribute('id') === attribute) {
+                element.classList.add("active");
+                [...btns].forEach(function(element, index, array) {
+                    element.classList.remove('active');
+                });
+                _this.classList.add("active");
+            } else {
+                element.classList.remove("active");
+            }
+        });
+    };
+    [...btns].forEach(function(element, index, array) {
+        element.addEventListener('click', myTabs);
     });
-};
-[...btns].forEach(function(element, index, array) {
-    element.addEventListener('click', myTabs);
-});
-
+}
 
 
 
@@ -370,4 +369,22 @@ $selectService.addEventListener('click', (e) => {
     }
 
 
+});
+
+
+let ids, tablinks;
+tablinks = document.querySelectorAll('.tablinks');
+let hashOriginal = window.location.hash;
+let hash = hashOriginal.replace('#', '');
+for (let i = 0; i < tablinks.length; i++) {
+    tablinks[i].setAttribute('id', `service-${i + 1}`);
+}
+ids = tablinks.forEach(tab => {
+    if (tab.id == hash) {
+        let result = tab;
+        console.log(result);
+        result.click();
+    } else if (hash == '') {
+        tablinks[0].click();
+    }
 });

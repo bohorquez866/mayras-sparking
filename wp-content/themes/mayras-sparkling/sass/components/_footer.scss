@@ -20,9 +20,16 @@
     }
     & * {
         font-family: $font_01;
-        font-weight: 600;
+        font-weight: 400;
         font-size: 16px;
         letter-spacing: 0.05em;
+    }
+    & .current-menu-item {
+        & a {
+            @include mq-min($bpMedium) {
+                border-bottom: 2px solid #fff;
+            }
+        }
     }
     & .footer__contact {
         align-items: center;

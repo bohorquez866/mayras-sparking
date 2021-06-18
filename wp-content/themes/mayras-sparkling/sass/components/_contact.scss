@@ -41,6 +41,7 @@
             text-align: center;
             letter-spacing: 0.03em;
             color: $white;
+            text-transform: initial!important;
             margin-top: 2rem;
             @include mq($bpMedium) {
                 font-size: 22px;
