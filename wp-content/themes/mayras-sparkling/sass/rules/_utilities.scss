@@ -130,6 +130,10 @@
     color: $black;
 }
 
+.services_lists_item_title.main {
+    border-bottom: none;
+}
+
 .services_lists_item_title.main::before {
     content: '';
 }
@@ -144,6 +148,9 @@
     & ul,
     & p:first-of-type {
         padding-top: 3rem;
+        @include mq($bpLarge) {
+            padding-top: 1rem;
+        }
     }
     &:first {
         max-height: initial;
@@ -152,13 +159,16 @@
 
 .accordion i:before {
     /* Unicode character for "plus" sign (+) */
-    font-size: 16px;
+    font-size: 13px;
     color: #696969!important;
     float: right;
     margin-left: 5px;
     position: absolute;
     right: 0!important;
     top: 25%;
+    @include mq($bpLarge) {
+        font-size: 11px;
+    }
 }
 
 .accordion.active:before {

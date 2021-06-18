@@ -16,6 +16,12 @@
         flex-direction: column;
         height: 26rem;
         padding-left: 50%;
+        @include mq($bpLarge) {
+            padding-left: calc(44% + 5px);
+        }
+        @include mq($bpLaptop) {
+            padding-left: calc(50% - 1rem);
+        }
         @include mq($bpMedium) {
             padding-left: 0;
         }
@@ -28,13 +34,16 @@
                 text-align: center;
             }
         }
-        h1 {
+        & h1 {
             font-size: 16px;
             line-height: 18px;
             text-align: left;
             letter-spacing: 0.23em;
             color: #00FFD1;
             font-family: $font_01;
+            @include mq($bpLarge) {
+                letter-spacing: 0.1em!important;
+            }
             @include mq($bpMedium) {
                 font-size: 15px;
                 text-align: center;
@@ -110,8 +119,9 @@
             margin-top: 12rem;
         }
         @include mq($bpLarge) {
-            width: 100%;
-            margin-top: 5rem;
+            width: 56%;
+            margin-top: 14rem;
+            justify-self: left;
         }
         & p {
             @extend .text;
@@ -187,6 +197,9 @@
     & h3 {
         @include title(35px, 16px, $font_02, uppercase);
         max-width: 45rem;
+        @include mq($bpLarge) {
+            letter-spacing: 0.1em!important;
+        }
         @include mq($bpMedium) {
             @include title(22px, 15px, $font_02, uppercase);
         }

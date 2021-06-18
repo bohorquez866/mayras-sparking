@@ -45,10 +45,10 @@ get_header(); ?>
 
             <!-- Services List -->
             <section class="services_lists">
-                <h3><?php _e('Services','mayras'); ?></h3>
+
 
                 <div class="services_lists_items" id="service-<?php echo $d;?>">
-
+                    <h3><?php _e('Services','mayras'); ?></h3>
                     <div class="services_lists_item">
 
                         <h2 class="services_lists_item_title accordion main">

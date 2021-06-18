@@ -179,7 +179,6 @@ if (window.innerWidth > 768) {
                 title.addEventListener('click', (e) => {
 
                     const opened_item = acc.querySelector('.active');
-                    console.log(title);
                     // Toggle current item
                     toggle_item(item);
                     // Close earlier opened item if exists
@@ -328,36 +327,50 @@ $prevTabArrow.forEach(prev => {
 //tab for mobile grand-parent 
 
 var btns = document.getElementsByClassName('tab');
-var items = document.getElementsByClassName('item');
-if (items) {
-    items[0].classList.add('active');
-}
-
-if (items && btns) {
+var items = document.querySelectorAll('.service-mobile.item');
+console.log(items[0]);
+items[0].classList.add('active');
 
 
-    var myTabs = function myTabs() {
-        var _this = this;
-        var attribute = this.getAttribute("data-id");
 
-        [...items].forEach(function(element, index, array) {
 
-            console.log(element[0]);
-            if (element.getAttribute('id') === attribute) {
-                element.classList.add("active");
-                [...btns].forEach(function(element, index, array) {
-                    element.classList.remove('active');
-                });
-                _this.classList.add("active");
-            } else {
-                element.classList.remove("active");
-            }
+window.addEventListener('load', function() {
+
+    [...btns].forEach(function(btn, index, array) {
+
+        btn.addEventListener('click', function() {
+            var _this = this;
+            var attribute = this.getAttribute("data-id");
+
+            [...items].forEach(function(element, index, array) {
+
+
+                if (element.getAttribute('id') === attribute) {
+
+                    element.classList.add("active");
+
+
+                    [...btns].forEach(function(element, index, array) {
+                        element.classList.remove('active');
+                    });
+
+                    _this.classList.add("active");
+
+
+                } else {
+
+                    element.classList.remove("active");
+
+                }
+            });
         });
-    };
-    [...btns].forEach(function(element, index, array) {
-        element.addEventListener('click', myTabs);
+
     });
-}
+
+
+});
+
+
 
 
 
@@ -368,7 +381,6 @@ let $selectService = document.querySelector('.select-service'),
 
 
 $selectService.addEventListener('click', (e) => {
-    console.log(e.target.nodeName);
 
     if (e.target.nodeName == 'H3') {
         $selectService.classList.add('active');
@@ -391,7 +403,6 @@ for (let i = 0; i < tablinks.length; i++) {
 ids = tablinks.forEach(tab => {
     if (tab.id == hash) {
         let result = tab;
-        console.log(result);
         result.click();
     } else if (hash == '') {
         tablinks[0].click();

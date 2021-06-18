@@ -49,6 +49,7 @@
                     <li>
                         <a class="icon-phone" href="tel:<?php the_field( 'telefono','options'); ?>"></a>
                     </li>
+
                     <li>
                         <a class="icon-mail" href="mailto:<?php the_field( 'email','options'); ?>"></a>
                     </li>

@@ -10,7 +10,7 @@
     align-items: flex-end;
     background-color: $white;
     &>*:not(ul) {
-        padding-bottom: 2rem;
+        padding-bottom: 2.5rem;
     }
     &::before {
         content: '';
@@ -34,7 +34,7 @@
         height: 72px;
         margin-right: 4.5rem;
         padding-bottom: 0;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         & a {
             display: block;
             background-color: transparent!important;
@@ -44,18 +44,29 @@
             height: 100%;
             object-fit: scale-down;
         }
+        @include mq($bpLarge) {
+            margin-right: 3rem;
+            width: 97px;
+            height: 60px;
+            & img {
+                height: auto;
+            }
+        }
     }
     &__list {
         column-gap: 1.7rem;
+        @include mq($bpLarge) {
+            column-gap: 0;
+        }
         & .menu-item {
             text-align: center;
             padding: 1rem 0;
-            padding-bottom: 2rem;
+            padding-bottom: 3rem;
             width: 13.7rem;
             @include transition;
             @include mq($bpLarge) {
                 padding: .7rem 1rem;
-                padding-bottom: 2rem;
+                padding-bottom: 3rem;
                 width: initial;
                 & li {
                     padding-top: 1rem;
@@ -83,7 +94,9 @@
                 white-space: nowrap;
                 min-width: fit-content;
                 @include mq($bpLarge) {
-                    font-size: 13px;
+                    font-weight: 600;
+                    font-size: 10px;
+                    height: 25px;
                 }
             }
         }
@@ -311,7 +324,7 @@
         font-weight: 700;
         padding: 0;
         & img {
-            width: 1.8rem;
+            width: 1.5rem;
         }
     }
     & .navbar__list {

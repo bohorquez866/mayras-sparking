@@ -1,14 +1,35 @@
 .page-template-templatesservices-php {
     & .navbar {
-        position: absolute;
-        left: 0;
-        top: 0;
+        @include margin-x;
+        max-width: 100%;
         width: 100%;
-        z-index: 20;
-        background-color: transparent;
+        padding-top: 21px;
+        z-index: 2;
         padding-right: 20.5%;
+        padding-left: 12.5%;
+        position: absolute;
+        @include transition;
+        display: flex;
+        align-items: flex-end;
+        background-color: transparent;
         &::before {
             width: 67%;
+        }
+        &__list {
+            &>li:nth-of-type(2) {
+                &:hover {
+                    & .sub-menu {
+                        opacity: 1;
+                        z-index: 5;
+                        height: initial;
+                    }
+                }
+            }
+            & .sub-menu {
+                z-index: 20;
+                height: 0;
+                overflow: hidden;
+            }
         }
         & .header_fixed {
             padding-right: 4%;
@@ -33,30 +54,43 @@
         background-color: $green;
         width: 40%;
         min-width: 40%;
-        padding: 23rem 8rem 0 8rem;
+        padding: 0 8rem 0 8rem;
         max-height: 100vh;
-        overflow-y: scroll;
         scrollbar-width: thin;
         scrollbar-width: none;
+        & .services_lists_items {
+            margin-top: 20rem;
+            overflow-y: scroll;
+            margin-bottom: 3rem;
+            padding-right: 2rem;
+            &::-webkit-scrollbar {
+                width: 10px;
+            }
+            &::-webkit-scrollbar-track {
+                width: 10px;
+                border-radius: 5rem;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: #03c09d;
+                border-radius: 5rem;
+            }
+            height: calc(100vh - 23rem);
+            @include mq($bpLarge) {
+                margin-top: 15rem;
+                height: calc(100vh - 18rem);
+            }
+        }
         @include mq($bpLarge) {
+            width: 37%;
+            min-width: 37%;
             padding-top: 15rem;
+            padding: 0 5rem 0 5rem;
         }
         @include mq($bpMedium) {
             background-color: $white;
             width: 100%;
             padding: 6rem 3rem 10rem 3rem;
             overflow: initial;
-        }
-        &::-webkit-scrollbar {
-            width: 10px;
-        }
-        &::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            width: 10px;
-        }
-        &::-webkit-scrollbar-thumb {
-            background: #03c09d;
-            border-radius: 5rem;
         }
         & h3 {
             font-weight: normal;
@@ -73,13 +107,13 @@
         }
         & h2 {
             font-style: normal;
-            font-weight: normal;
+            font-weight: 500;
             font-size: 35px;
             line-height: 26px;
             /* or 74% */
             letter-spacing: 0.03em;
-            @include mq($bpMedium) {
-                font-size: 23px;
+            @include mq($bpLarge) {
+                font-size: 25px;
             }
             @include mq($bpMedium) {
                 border-bottom: none;
@@ -98,6 +132,9 @@
                 }
             }
             margin-bottom: 5rem;
+            @include mq($bpLarge) {
+                margin-bottom: 2rem;
+            }
             & .services_lists_item_title.accordion {
                 &:hover {
                     color: $black!important;
@@ -132,11 +169,19 @@
                 /* or 73% */
                 letter-spacing: 0.03em;
                 color: #696969;
+                @include mq($bpLarge) {
+                    font-size: 18px;
+                }
                 @include mq($bpMedium) {
                     color: $black;
                     padding-bottom: 1rem;
                     border-bottom: 1px solid #000;
                     line-height: initial;
+                }
+            }
+            &.active {
+                & h3 {
+                    color: $black;
                 }
             }
         }
@@ -167,9 +212,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            @include mq($bpLarge) {
+                width: 37px;
+                height: 78px;
+            }
             &::before {
                 color: $white;
                 font-size: 18px;
+                @include mq($bpLarge) {
+                    font-size: 13px;
+                }
             }
             &:hover {
                 background: #FF6858
@@ -199,7 +251,7 @@
                 height: 100%;
             }
             &:nth-child(1) {
-                height: 60vh;
+                height: 70vh;
                 top: 0;
                 left: 0;
                 position: absolute;
@@ -249,15 +301,20 @@
                 width: 388px;
                 height: 606px;
                 position: relative;
-                z-index: 5;
+                z-index: 1;
                 filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.4));
                 right: 0;
                 @include margin-x;
+                @include mq($bpLarge) {
+                    width: 320px;
+                    height: 491px;
+                    margin-top: 10rem;
+                }
             }
             &:nth-child(2),
             &:nth-child(3) {
-                height: 40vh;
-                top: 60vh;
+                height: 30vh;
+                top: 70vh;
                 width: 50%;
             }
         }
@@ -306,7 +363,7 @@
             }
         }
         & * {
-            color: $white;
+            color: rgba(255, 255, 255, 0.7);
         }
         & .services_titles_list_item {
             cursor: pointer;
@@ -314,23 +371,50 @@
             margin-bottom: 35px;
             padding-bottom: 1rem;
             border-bottom: .5px solid rgba(255, 255, 255, 0.7);
-            ;
+            @include mq($bpLarge) {
+                margin-left: 3rem;
+                margin-bottom: 20px;
+            }
+            @include mq($bpLaptop) {
+                margin-bottom: 10px;
+            }
             & h3 {
                 font-weight: normal;
-                font-size: 20px;
-                letter-spacing: 0.3em;
+                font-size: 16px;
+                letter-spacing: 0.1em;
                 text-transform: uppercase;
                 margin-bottom: 0;
+                @include mq($bpLarge) {
+                    font-size: 10px;
+                }
             }
             & h4 {
+                position: relative;
                 font-weight: normal;
                 font-size: 25px;
                 letter-spacing: 0.05em;
                 color: rgba(255, 255, 255, 0.7);
+                &::before {
+                    font-family: 'icomoon' !important;
+                    content: '\e904';
+                    position: absolute;
+                    font-size: 8px;
+                    top: 11px;
+                    left: -2rem;
+                    color: rgba(255, 255, 255, 0.7);
+                }
+                @include mq($bpLarge) {
+                    font-size: 20px;
+                }
             }
             &.tablinks.active {
-                & h4 {
+                & * {
                     color: $white;
+                }
+                & h4 {
+                    &::before {
+                        color: $white;
+                    }
                 }
             }
         }
