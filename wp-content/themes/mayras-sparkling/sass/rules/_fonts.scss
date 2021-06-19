@@ -63,6 +63,9 @@
     @include mq($bpMedium) {
         font-size: 14px;
     }
+    @include mq($bpLarge) {
+        line-height: 20px;
+    }
 }
 
 .read-more {

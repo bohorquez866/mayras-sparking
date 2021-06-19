@@ -44,10 +44,6 @@ if (window.innerWidth > 768) {
             prevEl: ".prev2",
         },
 
-        // pagination: {
-        //     el: ` .swiper-pagination-service`,
-
-        // }
     });
 
     var swiper = new Swiper(".banner_slider_prin .swiper-container  ", {
@@ -99,10 +95,10 @@ if (window.innerWidth > 768) {
             prevEl: ".prev2",
         },
 
-        // pagination: {
-        //     el: ` .swiper-pagination-service`,
+        pagination: {
+            el: ` .swiper-pagination-service`,
 
-        // }
+        }
     });
 
     var swiper = new Swiper(".banner_slider_prin .swiper-container  ", {

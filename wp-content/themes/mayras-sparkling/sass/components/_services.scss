@@ -26,6 +26,7 @@
                 }
             }
             & .sub-menu {
+                display: none;
                 z-index: 20;
                 height: 0;
                 overflow: hidden;
@@ -81,8 +82,8 @@
             }
         }
         @include mq($bpLarge) {
-            width: 37%;
-            min-width: 37%;
+            width: 36%;
+            min-width: 36%;
             padding-top: 15rem;
             padding: 0 5rem 0 5rem;
         }
@@ -127,13 +128,18 @@
             &.active {
                 & .accordion {
                     & i::before {
+                        @include transition;
                         color: $black!important;
+                        transform: rotate(45deg);
                     }
                 }
             }
             margin-bottom: 5rem;
             @include mq($bpLarge) {
                 margin-bottom: 2rem;
+                &:first-of-type {
+                    margin-bottom: 3rem;
+                }
             }
             & .services_lists_item_title.accordion {
                 &:hover {
@@ -346,6 +352,9 @@
             width: 100%;
             overflow: initial;
         }
+        & * {
+            color: rgba(255, 255, 255, 0.7);
+        }
         & h1 {
             font-weight: 500;
             font-size: 33px;
@@ -358,17 +367,15 @@
             padding-bottom: 2rem;
             padding-left: 4rem;
             margin-bottom: 35px;
+            color: $white;
             @include mq($bpLarge) {
                 font-size: 23px;
             }
         }
-        & * {
-            color: rgba(255, 255, 255, 0.7);
-        }
         & .services_titles_list_item {
             cursor: pointer;
             margin-left: 4rem;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
             padding-bottom: 1rem;
             border-bottom: .5px solid rgba(255, 255, 255, 0.7);
             @include mq($bpLarge) {
@@ -407,6 +414,11 @@
                     font-size: 20px;
                 }
             }
+            &.tablinks:hover {
+                & * {
+                    color: white;
+                }
+            }
             &.tablinks.active {
                 & * {
                     color: $white;
@@ -428,6 +440,12 @@
         display: none;
     }
     margin-top: 0;
+    & img.head-pic {
+        Width: 100vw;
+        Height: 149px;
+        transform: translateX(-3rem);
+        margin-top: 3rem;
+    }
     & .select-service {
         // max-height: 40px;
         border: 1px solid $black;

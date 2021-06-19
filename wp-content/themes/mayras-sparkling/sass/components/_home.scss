@@ -6,6 +6,7 @@
         margin-bottom: 12rem;
     }
     @include mq($bpMedium) {
+        margin-bottom: 6rem;
         padding: 0 3rem;
         max-width: 100%;
     }
@@ -99,6 +100,7 @@
                     right: -8%;
                     width: 31.7rem;
                     height: 43.4rem;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
                     @include mq($bpLarge) {
                         height: 100%;
                         width: 23rem;
@@ -182,8 +184,23 @@
             max-width: 630px;
         }
     }
+    & .swiper-pagination {
+        @include mq-min($bpMedium) {
+            display: none;
+        }
+        bottom: 2rem;
+        left: 0;
+        right: 0;
+        & .swiper-pagination-bullet {
+            background-color: #696969;
+            margin-right: 1rem;
+        }
+        & .swiper-pagination-bullet-active {
+            background-color: $green;
+        }
+    }
     & .home-service-swiper {
-        max-width: 125rem;
+        max-width: 120rem;
         @include margin-x;
         @include mq($bpLarge) {
             max-width: 75%;
@@ -233,6 +250,9 @@
                 @extend .text;
                 text-align: center;
                 letter-spacing: 0.05em;
+                @include mq-min($bpMedium) {
+                    min-height: 80px;
+                }
             }
             & a {
                 @include btn-creator(0, $black, 19.2rem, 32px);
@@ -358,7 +378,7 @@
             column-gap: 3rem;
         }
         & h1 {
-            @include title(35px, 16px, $font_02, uppercase);
+            @include title(35px, 16px, $font_01, uppercase);
             height: fit-content;
             margin-top: 8rem;
             @include mq($bpLarge) {
@@ -366,7 +386,6 @@
             }
             & span {
                 display: block;
-                letter-spacing: normal;
             }
         }
         & h1,

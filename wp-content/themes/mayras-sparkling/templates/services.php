@@ -178,6 +178,8 @@ get_header(); ?>
 
 
         <div class="service-mobile item" id="servicio-<?php  echo $e ?>">
+            <img class="head-pic" src="<?php the_field('imagen_servicio_mobile'); ?>" alt="<?php the_title(); ?>">
+
             <article class="services_lists_item">
                 <div class="title-responsive accordion">
                     <i class="icon-cross"></i>

@@ -18,7 +18,7 @@
         & h1,
         & h3 {
             text-align: left;
-            @include title(35px, 16px, $font_02, uppercase);
+            @include title(35px, 16px, $font_01, uppercase);
         }
         h1 {
             font-size: 16px;
@@ -43,6 +43,9 @@
             color: $white;
             text-transform: initial!important;
             margin-top: 2rem;
+            @include mq($bpLarge) {
+                margin-top: 0;
+            }
             @include mq($bpMedium) {
                 font-size: 22px;
                 margin-top: 0;
@@ -73,11 +76,11 @@
             grid-template-columns: 1fr
         }
         & h1 {
-            @include title(35px, 16px, $font_02, uppercase);
+            @include title(35px, 16px, $font_01, uppercase);
             height: fit-content;
             margin-top: 8rem;
             @include mq($bpMedium) {
-                @include title(22px, 15px, $font_02, uppercase);
+                @include title(22px, 15px, $font_01, uppercase);
                 margin-top: 0;
             }
             & span {

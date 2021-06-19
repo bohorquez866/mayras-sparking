@@ -17,10 +17,10 @@
         height: 26rem;
         padding-left: 50%;
         @include mq($bpLarge) {
-            padding-left: calc(44% + 5px);
+            padding-left: calc(56% + 5px);
         }
         @include mq($bpLaptop) {
-            padding-left: calc(50% - 1rem);
+            padding-left: calc(55% - 1rem);
         }
         @include mq($bpMedium) {
             padding-left: 0;
@@ -28,7 +28,7 @@
         & h1,
         & h3 {
             text-align: left;
-            @include title(35px, 16px, $font_02, uppercase);
+            @include title(35px, 16px, $font_01, uppercase);
             @include mq($bpMedium) {
                 max-width: 100%;
                 text-align: center;
@@ -41,9 +41,7 @@
             letter-spacing: 0.23em;
             color: #00FFD1;
             font-family: $font_01;
-            @include mq($bpLarge) {
-                letter-spacing: 0.1em!important;
-            }
+            @include mq($bpLarge) {}
             @include mq($bpMedium) {
                 font-size: 15px;
                 text-align: center;
@@ -81,7 +79,7 @@
     padding-left: 6.5%;
     //
     @include mq($bpLarge) {
-        padding-left: 2.5%;
+        padding-left: 11.5%;
         column-gap: 5rem;
         margin-bottom: 10rem;
         grid-template-columns: min-content 1fr;
@@ -116,11 +114,18 @@
         align-self: center;
         margin-top: 7rem;
         @include mq($bpLarge) {
-            margin-top: 12rem;
+            width: 59%;
+            margin-top: 8rem;
+            justify-self: left;
         }
-        @include mq($bpLarge) {
-            width: 56%;
-            margin-top: 14rem;
+        @include mq($bpLaptop) {
+            width: 70%;
+            margin-top: 8rem;
+            justify-self: left;
+        }
+        @include mq($bpMedium) {
+            width: 100%;
+            margin-top: 6rem;
             justify-self: left;
         }
         & p {
@@ -189,19 +194,18 @@
     max-width: 110rem;
     @include margin-x;
     @include mq($bpLarge) {
-        padding: 5.5rem 0 6rem 0;
+        padding: 10rem 0 10rem 0;
+        ;
     }
     @include mq($bpMedium) {
         padding: 6rem 3rem;
     }
     & h3 {
-        @include title(35px, 16px, $font_02, uppercase);
+        @include title(35px, 16px, $font_01, uppercase);
         max-width: 45rem;
-        @include mq($bpLarge) {
-            letter-spacing: 0.1em!important;
-        }
+        @include mq($bpLarge) {}
         @include mq($bpMedium) {
-            @include title(22px, 15px, $font_02, uppercase);
+            @include title(22px, 15px, $font_01, uppercase);
         }
         & strong {
             margin-top: 1rem;
@@ -231,6 +235,9 @@
             line-height: 11px;
             cursor: initial;
             letter-spacing: 0.15em;
+            @include mq($bpLarge) {
+                margin-bottom: 2rem;
+            }
         }
         & p {
             @extend .text;
